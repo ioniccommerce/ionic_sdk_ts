@@ -1,6 +1,7 @@
 configVersion: 2.0.0
 generation:
   sdkClassName: Ionic
+  maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
   useClassNamesForArrayFields: true
@@ -8,10 +9,16 @@ generation:
     nameResolutionDec2023: false
     parameterOrderingFeb2024: false
     requestResponseComponentNamesFeb2024: false
+  auth:
+    oAuth2ClientCredentialsEnabled: false
   baseServerURL: ""
   flattenGlobalSecurity: true
 typescript:
   version: 0.0.1
+  additionalDependencies:
+    dependencies: {}
+    devDependencies: {}
+    peerDependencies: {}
   author: Ionic
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
@@ -27,4 +34,5 @@ typescript:
   maxMethodParams: 4
   outputModelSuffix: output
   packageName: Ionic-API
+  responseFormat: envelope-http
   templateVersion: v2
