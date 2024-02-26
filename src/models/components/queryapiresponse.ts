@@ -6,43 +6,43 @@ import { QueryResult, QueryResult$ } from "./queryresult";
 import { z } from "zod";
 
 export type QueryAPIResponse = {
-    token: string;
     results?: Array<QueryResult> | undefined;
+    token: string;
 };
 
 /** @internal */
 export namespace QueryAPIResponse$ {
     export type Inbound = {
-        token: string;
         results?: Array<QueryResult$.Inbound> | undefined;
+        token: string;
     };
 
     export const inboundSchema: z.ZodType<QueryAPIResponse, z.ZodTypeDef, Inbound> = z
         .object({
-            token: z.string(),
             results: z.array(QueryResult$.inboundSchema).optional(),
+            token: z.string(),
         })
         .transform((v) => {
             return {
-                token: v.token,
                 ...(v.results === undefined ? null : { results: v.results }),
+                token: v.token,
             };
         });
 
     export type Outbound = {
-        token: string;
         results?: Array<QueryResult$.Outbound> | undefined;
+        token: string;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, QueryAPIResponse> = z
         .object({
-            token: z.string(),
             results: z.array(QueryResult$.outboundSchema).optional(),
+            token: z.string(),
         })
         .transform((v) => {
             return {
-                token: v.token,
                 ...(v.results === undefined ? null : { results: v.results }),
+                token: v.token,
             };
         });
 }

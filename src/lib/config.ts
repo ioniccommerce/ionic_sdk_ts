@@ -12,7 +12,7 @@ import { pathToFunc } from "./url";
 export const ServerList = ["https://api.ioniccommerce.com"] as const;
 
 export type SDKOptions = {
-    apiKeyHeader?: string | (() => Promise<string>);
+    apiKeyQuery?: string | (() => Promise<string>);
 
     httpClient?: HTTPClient;
     /**
@@ -46,7 +46,7 @@ export function serverURLFromOptions(options: SDKOptions): URL | null {
 export const SDK_METADATA = Object.freeze({
     language: "typescript",
     openapiDocVersion: "0.1",
-    sdkVersion: "0.0.1",
+    sdkVersion: "0.0.2",
     genVersion: "2.272.4",
-    userAgent: "speakeasy-sdk/typescript 0.0.1 2.272.4 0.1 Ionic-API",
+    userAgent: "speakeasy-sdk/typescript 0.0.2 2.272.4 0.1 ionic-commerce-sdk",
 });

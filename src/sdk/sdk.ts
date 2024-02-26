@@ -88,10 +88,9 @@ export class Ionic extends ClientSDK {
         const response = await this.do$(request, doOptions);
 
         const responseFields$ = {
-            HttpMeta: {
-                Response: response,
-                Request: request,
-            },
+            ContentType: response.headers.get("content-type") ?? "application/octet-stream",
+            StatusCode: response.status,
+            RawResponse: response,
         };
 
         if (this.matchResponse(response, 200, "application/json")) {
@@ -121,7 +120,8 @@ export class Ionic extends ClientSDK {
             );
             throw result;
         } else {
-            throw new errors.SDKError("Unexpected API response", { response, request });
+            const responseBody = await response.text();
+            throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
     }
 }

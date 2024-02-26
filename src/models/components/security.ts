@@ -3,5 +3,5 @@
  */
 
 export type Security = {
-    apiKeyHeader?: string | undefined;
+    apiKeyQuery?: string | undefined;
 };

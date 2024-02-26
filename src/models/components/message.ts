@@ -7,6 +7,7 @@ import { MessageType, MessageType$ } from "./messagetype";
 import { z } from "zod";
 
 export type Message = {
+    content: string;
     /**
      * An enumeration.
      */
@@ -15,48 +16,47 @@ export type Message = {
      * An enumeration.
      */
     type: MessageType;
-    content: string;
 };
 
 /** @internal */
 export namespace Message$ {
     export type Inbound = {
+        content: string;
         role: MessageRole;
         type: MessageType;
-        content: string;
     };
 
     export const inboundSchema: z.ZodType<Message, z.ZodTypeDef, Inbound> = z
         .object({
+            content: z.string(),
             role: MessageRole$,
             type: MessageType$,
-            content: z.string(),
         })
         .transform((v) => {
             return {
+                content: v.content,
                 role: v.role,
                 type: v.type,
-                content: v.content,
             };
         });
 
     export type Outbound = {
+        content: string;
         role: MessageRole;
         type: MessageType;
-        content: string;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Message> = z
         .object({
+            content: z.string(),
             role: MessageRole$,
             type: MessageType$,
-            content: z.string(),
         })
         .transform((v) => {
             return {
+                content: v.content,
                 role: v.role,
                 type: v.type,
-                content: v.content,
             };
         });
 }

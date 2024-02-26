@@ -16,8 +16,8 @@ API for searching for products & recommendations.
 ### Example Usage
 
 ```typescript
-import { Ionic } from "Ionic-API";
-import { MessageRole, MessageType } from "Ionic-API/models/components";
+import { Ionic } from "ionic-commerce-sdk";
+import { MessageRole, MessageType } from "ionic-commerce-sdk/models/components";
 
 async function run() {
   const sdk = new Ionic();
@@ -27,17 +27,17 @@ async function run() {
   };
   
   const result = await sdk.query({
+    messages: [
+      {
+        content: "<value>",
+        role: MessageRole.System,
+        type: MessageType.Tag,
+      },
+    ],
     query: {
       query: "<value>",
     },
     session: {},
-    messages: [
-      {
-        role: MessageRole.System,
-        type: MessageType.Tag,
-        content: "<value>",
-      },
-    ],
   }, operationSecurity);
 
   // Handle the result

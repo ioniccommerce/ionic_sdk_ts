@@ -1,6 +1,6 @@
 {
-  "name": "Ionic-API",
-  "version": "0.0.1",
+  "name": "ionic-commerce-sdk",
+  "version": "0.0.2",
   "author": "Ionic",
   "main": "./index.js",
   "sideEffects": false,

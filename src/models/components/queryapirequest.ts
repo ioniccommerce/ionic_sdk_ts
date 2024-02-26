@@ -8,50 +8,50 @@ import { Session, Session$ } from "./session";
 import { z } from "zod";
 
 export type QueryAPIRequest = {
+    messages?: Array<Message> | undefined;
     query: Query;
     session?: Session | undefined;
-    messages?: Array<Message> | undefined;
 };
 
 /** @internal */
 export namespace QueryAPIRequest$ {
     export type Inbound = {
+        messages?: Array<Message$.Inbound> | undefined;
         query: Query$.Inbound;
         session?: Session$.Inbound | undefined;
-        messages?: Array<Message$.Inbound> | undefined;
     };
 
     export const inboundSchema: z.ZodType<QueryAPIRequest, z.ZodTypeDef, Inbound> = z
         .object({
+            messages: z.array(Message$.inboundSchema).optional(),
             query: Query$.inboundSchema,
             session: Session$.inboundSchema.optional(),
-            messages: z.array(Message$.inboundSchema).optional(),
         })
         .transform((v) => {
             return {
+                ...(v.messages === undefined ? null : { messages: v.messages }),
                 query: v.query,
                 ...(v.session === undefined ? null : { session: v.session }),
-                ...(v.messages === undefined ? null : { messages: v.messages }),
             };
         });
 
     export type Outbound = {
+        messages?: Array<Message$.Outbound> | undefined;
         query: Query$.Outbound;
         session?: Session$.Outbound | undefined;
-        messages?: Array<Message$.Outbound> | undefined;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, QueryAPIRequest> = z
         .object({
+            messages: z.array(Message$.outboundSchema).optional(),
             query: Query$.outboundSchema,
             session: Session$.outboundSchema.optional(),
-            messages: z.array(Message$.outboundSchema).optional(),
         })
         .transform((v) => {
             return {
+                ...(v.messages === undefined ? null : { messages: v.messages }),
                 query: v.query,
                 ...(v.session === undefined ? null : { session: v.session }),
-                ...(v.messages === undefined ? null : { messages: v.messages }),
             };
         });
 }

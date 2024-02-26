@@ -22,13 +22,13 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 ### NPM
 
 ```bash
-npm add Ionic-API
+npm add ionic-commerce-sdk
 ```
 
 ### Yarn
 
 ```bash
-yarn add Ionic-API
+yarn add ionic-commerce-sdk
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -44,8 +44,8 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 ### Example
 
 ```typescript
-import { Ionic } from "Ionic-API";
-import { MessageRole, MessageType } from "Ionic-API/models/components";
+import { Ionic } from "ionic-commerce-sdk";
+import { MessageRole, MessageType } from "ionic-commerce-sdk/models/components";
 
 async function run() {
     const sdk = new Ionic();
@@ -56,17 +56,17 @@ async function run() {
 
     const result = await sdk.query(
         {
+            messages: [
+                {
+                    content: "<value>",
+                    role: MessageRole.System,
+                    type: MessageType.Tag,
+                },
+            ],
             query: {
                 query: "<value>",
             },
             session: {},
-            messages: [
-                {
-                    role: MessageRole.System,
-                    type: MessageType.Tag,
-                    content: "<value>",
-                },
-            ],
         },
         operationSecurity
     );
@@ -102,9 +102,9 @@ Validation errors can also occur when either method arguments or data returned f
 
 
 ```typescript
-import { Ionic } from "Ionic-API";
-import { MessageRole, MessageType } from "Ionic-API/models/components";
-import * as errors from "Ionic-API/models/errors";
+import { Ionic } from "ionic-commerce-sdk";
+import { MessageRole, MessageType } from "ionic-commerce-sdk/models/components";
+import * as errors from "ionic-commerce-sdk/models/errors";
 
 async function run() {
     const sdk = new Ionic();
@@ -117,17 +117,17 @@ async function run() {
     try {
         result = await sdk.query(
             {
+                messages: [
+                    {
+                        content: "<value>",
+                        role: MessageRole.System,
+                        type: MessageType.Tag,
+                    },
+                ],
                 query: {
                     query: "<value>",
                 },
                 session: {},
-                messages: [
-                    {
-                        role: MessageRole.System,
-                        type: MessageType.Tag,
-                        content: "<value>",
-                    },
-                ],
             },
             operationSecurity
         );
@@ -171,8 +171,8 @@ You can override the default server globally by passing a server index to the `s
 | 0 | `https://api.ioniccommerce.com` | None |
 
 ```typescript
-import { Ionic } from "Ionic-API";
-import { MessageRole, MessageType } from "Ionic-API/models/components";
+import { Ionic } from "ionic-commerce-sdk";
+import { MessageRole, MessageType } from "ionic-commerce-sdk/models/components";
 
 async function run() {
     const sdk = new Ionic({
@@ -185,17 +185,17 @@ async function run() {
 
     const result = await sdk.query(
         {
+            messages: [
+                {
+                    content: "<value>",
+                    role: MessageRole.System,
+                    type: MessageType.Tag,
+                },
+            ],
             query: {
                 query: "<value>",
             },
             session: {},
-            messages: [
-                {
-                    role: MessageRole.System,
-                    type: MessageType.Tag,
-                    content: "<value>",
-                },
-            ],
         },
         operationSecurity
     );
@@ -214,8 +214,8 @@ run();
 The default server can also be overridden globally by passing a URL to the `serverURL` optional parameter when initializing the SDK client instance. For example:
 
 ```typescript
-import { Ionic } from "Ionic-API";
-import { MessageRole, MessageType } from "Ionic-API/models/components";
+import { Ionic } from "ionic-commerce-sdk";
+import { MessageRole, MessageType } from "ionic-commerce-sdk/models/components";
 
 async function run() {
     const sdk = new Ionic({
@@ -228,17 +228,17 @@ async function run() {
 
     const result = await sdk.query(
         {
+            messages: [
+                {
+                    content: "<value>",
+                    role: MessageRole.System,
+                    type: MessageType.Tag,
+                },
+            ],
             query: {
                 query: "<value>",
             },
             session: {},
-            messages: [
-                {
-                    role: MessageRole.System,
-                    type: MessageType.Tag,
-                    content: "<value>",
-                },
-            ],
         },
         operationSecurity
     );
@@ -270,8 +270,8 @@ custom header and a timeout to requests and how to use the `"requestError"` hook
 to log errors:
 
 ```typescript
-import { Ionic } from "Ionic-API";
-import { HTTPClient } from "Ionic-API/lib/http";
+import { Ionic } from "ionic-commerce-sdk";
+import { HTTPClient } from "ionic-commerce-sdk/lib/http";
 
 const httpClient = new HTTPClient({
   // fetcher takes a function that has the same signature as native `fetch`.
@@ -308,19 +308,19 @@ const sdk = new Ionic({ httpClient });
 
 This SDK supports the following security scheme globally:
 
-| Name           | Type           | Scheme         |
-| -------------- | -------------- | -------------- |
-| `apiKeyHeader` | apiKey         | API key        |
+| Name          | Type          | Scheme        |
+| ------------- | ------------- | ------------- |
+| `apiKeyQuery` | apiKey        | API key       |
 
-To authenticate with the API the `apiKeyHeader` parameter must be set when initializing the SDK client instance. For example:
+To authenticate with the API the `apiKeyQuery` parameter must be set when initializing the SDK client instance. For example:
 
 
 ### Per-Operation Security Schemes
 
 Some operations in this SDK require the security scheme to be specified at the request level. For example:
 ```typescript
-import { Ionic } from "Ionic-API";
-import { MessageRole, MessageType } from "Ionic-API/models/components";
+import { Ionic } from "ionic-commerce-sdk";
+import { MessageRole, MessageType } from "ionic-commerce-sdk/models/components";
 
 async function run() {
     const sdk = new Ionic();
@@ -331,17 +331,17 @@ async function run() {
 
     const result = await sdk.query(
         {
+            messages: [
+                {
+                    content: "<value>",
+                    role: MessageRole.System,
+                    type: MessageType.Tag,
+                },
+            ],
             query: {
                 query: "<value>",
             },
             session: {},
-            messages: [
-                {
-                    role: MessageRole.System,
-                    type: MessageType.Tag,
-                    content: "<value>",
-                },
-            ],
         },
         operationSecurity
     );

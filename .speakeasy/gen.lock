@@ -5,8 +5,8 @@ management:
   docVersion: "0.1"
   speakeasyVersion: internal
   generationVersion: 2.272.4
-  releaseVersion: 0.0.1
-  configChecksum: f99d6884d90ab2400ff27efd18a55cdc
+  releaseVersion: 0.0.2
+  configChecksum: 37d3efa99f0446fdfe5d31de1f25eb61
   repoURL: https://github.com/ioniccommerce/ionic_sdk_ts.git
   repoSubDirectory: .
   installationURL: https://github.com/ioniccommerce/ionic_sdk_ts
@@ -49,16 +49,15 @@ generatedFiles:
   - src/models/operations/query.ts
   - src/models/components/queryapiresponse.ts
   - src/models/components/queryresult.ts
+  - src/models/components/query.ts
   - src/models/components/product.ts
   - src/models/components/link.ts
-  - src/models/components/query.ts
-  - src/models/components/httpmetadata.ts
   - src/models/components/validationerror.ts
   - src/models/components/queryapirequest.ts
+  - src/models/components/session.ts
   - src/models/components/message.ts
   - src/models/components/messagetype.ts
   - src/models/components/messagerole.ts
-  - src/models/components/session.ts
   - src/models/components/security.ts
   - src/models/errors/httpvalidationerror.ts
   - src/models/errors/index.ts
@@ -68,17 +67,16 @@ generatedFiles:
   - docs/models/operations/queryresponse.md
   - docs/models/components/queryapiresponse.md
   - docs/models/components/queryresult.md
+  - docs/models/components/query.md
   - docs/models/components/product.md
   - docs/models/components/link.md
-  - docs/models/components/query.md
-  - docs/models/components/httpmetadata.md
   - docs/models/components/loc.md
   - docs/models/components/validationerror.md
   - docs/models/components/queryapirequest.md
+  - docs/models/components/session.md
   - docs/models/components/message.md
   - docs/models/components/messagetype.md
   - docs/models/components/messagerole.md
-  - docs/models/components/session.md
   - docs/models/components/security.md
   - docs/models/errors/httpvalidationerror.md
   - docs/sdks/ionic/README.md

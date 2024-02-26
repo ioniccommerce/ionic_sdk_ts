@@ -5,50 +5,50 @@
 import { z } from "zod";
 
 export type Link = {
-    url: string;
     text: string;
     type: string;
+    url: string;
 };
 
 /** @internal */
 export namespace Link$ {
     export type Inbound = {
-        url: string;
         text: string;
         type: string;
+        url: string;
     };
 
     export const inboundSchema: z.ZodType<Link, z.ZodTypeDef, Inbound> = z
         .object({
-            url: z.string(),
             text: z.string(),
             type: z.string(),
+            url: z.string(),
         })
         .transform((v) => {
             return {
-                url: v.url,
                 text: v.text,
                 type: v.type,
+                url: v.url,
             };
         });
 
     export type Outbound = {
-        url: string;
         text: string;
         type: string;
+        url: string;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Link> = z
         .object({
-            url: z.string(),
             text: z.string(),
             type: z.string(),
+            url: z.string(),
         })
         .transform((v) => {
             return {
-                url: v.url,
                 text: v.text,
                 type: v.type,
+                url: v.url,
             };
         });
 }

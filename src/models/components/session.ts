@@ -5,50 +5,50 @@
 import { z } from "zod";
 
 export type Session = {
+    locale?: string | undefined;
     sessionId?: string | undefined;
     userId?: string | undefined;
-    locale?: string | undefined;
 };
 
 /** @internal */
 export namespace Session$ {
     export type Inbound = {
+        locale?: string | undefined;
         session_id?: string | undefined;
         user_id?: string | undefined;
-        locale?: string | undefined;
     };
 
     export const inboundSchema: z.ZodType<Session, z.ZodTypeDef, Inbound> = z
         .object({
+            locale: z.string().default("en-US"),
             session_id: z.string().optional(),
             user_id: z.string().optional(),
-            locale: z.string().default("en-US"),
         })
         .transform((v) => {
             return {
+                locale: v.locale,
                 ...(v.session_id === undefined ? null : { sessionId: v.session_id }),
                 ...(v.user_id === undefined ? null : { userId: v.user_id }),
-                locale: v.locale,
             };
         });
 
     export type Outbound = {
+        locale: string;
         session_id?: string | undefined;
         user_id?: string | undefined;
-        locale: string;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Session> = z
         .object({
+            locale: z.string().default("en-US"),
             sessionId: z.string().optional(),
             userId: z.string().optional(),
-            locale: z.string().default("en-US"),
         })
         .transform((v) => {
             return {
+                locale: v.locale,
                 ...(v.sessionId === undefined ? null : { session_id: v.sessionId }),
                 ...(v.userId === undefined ? null : { user_id: v.userId }),
-                locale: v.locale,
             };
         });
 }

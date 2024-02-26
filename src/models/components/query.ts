@@ -5,57 +5,57 @@
 import { z } from "zod";
 
 export type Query = {
-    query: string;
-    numResults?: number | undefined;
-    minPrice?: number | undefined;
     maxPrice?: number | undefined;
+    minPrice?: number | undefined;
+    numResults?: number | undefined;
+    query: string;
 };
 
 /** @internal */
 export namespace Query$ {
     export type Inbound = {
-        query: string;
-        num_results?: number | undefined;
-        min_price?: number | undefined;
         max_price?: number | undefined;
+        min_price?: number | undefined;
+        num_results?: number | undefined;
+        query: string;
     };
 
     export const inboundSchema: z.ZodType<Query, z.ZodTypeDef, Inbound> = z
         .object({
-            query: z.string(),
-            num_results: z.number().int().default(5),
-            min_price: z.number().int().optional(),
             max_price: z.number().int().optional(),
+            min_price: z.number().int().optional(),
+            num_results: z.number().int().default(5),
+            query: z.string(),
         })
         .transform((v) => {
             return {
-                query: v.query,
-                numResults: v.num_results,
-                ...(v.min_price === undefined ? null : { minPrice: v.min_price }),
                 ...(v.max_price === undefined ? null : { maxPrice: v.max_price }),
+                ...(v.min_price === undefined ? null : { minPrice: v.min_price }),
+                numResults: v.num_results,
+                query: v.query,
             };
         });
 
     export type Outbound = {
-        query: string;
-        num_results: number;
-        min_price?: number | undefined;
         max_price?: number | undefined;
+        min_price?: number | undefined;
+        num_results: number;
+        query: string;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Query> = z
         .object({
-            query: z.string(),
-            numResults: z.number().int().default(5),
-            minPrice: z.number().int().optional(),
             maxPrice: z.number().int().optional(),
+            minPrice: z.number().int().optional(),
+            numResults: z.number().int().default(5),
+            query: z.string(),
         })
         .transform((v) => {
             return {
-                query: v.query,
-                num_results: v.numResults,
-                ...(v.minPrice === undefined ? null : { min_price: v.minPrice }),
                 ...(v.maxPrice === undefined ? null : { max_price: v.maxPrice }),
+                ...(v.minPrice === undefined ? null : { min_price: v.minPrice }),
+                num_results: v.numResults,
+                query: v.query,
             };
         });
 }

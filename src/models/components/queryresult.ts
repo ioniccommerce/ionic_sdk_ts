@@ -7,43 +7,43 @@ import { Query, Query$ } from "./query";
 import { z } from "zod";
 
 export type QueryResult = {
-    query: Query;
     products: Array<Product>;
+    query: Query;
 };
 
 /** @internal */
 export namespace QueryResult$ {
     export type Inbound = {
-        query: Query$.Inbound;
         products: Array<Product$.Inbound>;
+        query: Query$.Inbound;
     };
 
     export const inboundSchema: z.ZodType<QueryResult, z.ZodTypeDef, Inbound> = z
         .object({
-            query: Query$.inboundSchema,
             products: z.array(Product$.inboundSchema),
+            query: Query$.inboundSchema,
         })
         .transform((v) => {
             return {
-                query: v.query,
                 products: v.products,
+                query: v.query,
             };
         });
 
     export type Outbound = {
-        query: Query$.Outbound;
         products: Array<Product$.Outbound>;
+        query: Query$.Outbound;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, QueryResult> = z
         .object({
-            query: Query$.outboundSchema,
             products: z.array(Product$.outboundSchema),
+            query: Query$.outboundSchema,
         })
         .transform((v) => {
             return {
-                query: v.query,
                 products: v.products,
+                query: v.query,
             };
         });
 }
