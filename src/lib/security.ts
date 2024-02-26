@@ -159,6 +159,6 @@ function applyBearer(
 }
 export function resolveGlobalSecurity(security: Partial<components.Security> | null | undefined) {
     return resolveSecurity([
-        { value: security?.apiKeyQuery, fieldName: "api_key", type: "apiKey:query" },
+        { value: security?.apiKeyHeader, fieldName: "x-api-key", type: "apiKey:header" },
     ]);
 }

@@ -1,7 +1,7 @@
 <!-- Start SDK Example Usage [usage] -->
 ```typescript
-import { Ionic } from "ionic-commerce-sdk";
-import { MessageRole, MessageType } from "ionic-commerce-sdk/models/components";
+import { Ionic } from "@ioniccommerce/ionic-sdk";
+import { MessageRole, MessageType } from "@ioniccommerce/ionic-sdk/models/components";
 
 async function run() {
     const sdk = new Ionic();

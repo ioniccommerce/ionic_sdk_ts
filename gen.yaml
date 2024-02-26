@@ -13,7 +13,11 @@ generation:
   baseServerURL: ""
   flattenGlobalSecurity: true
 typescript:
-  version: 0.0.2
+  version: 0.0.3
+  additionalDependencies:
+    dependencies: {}
+    devDependencies: {}
+    peerDependencies: {}
   author: Ionic
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
@@ -29,4 +33,5 @@ typescript:
   maxMethodParams: 4
   outputModelSuffix: output
   packageName: '@ioniccommerce/ionic-sdk'
+  responseFormat: envelope
   templateVersion: v2

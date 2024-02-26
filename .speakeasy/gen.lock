@@ -5,8 +5,8 @@ management:
   docVersion: "0.1"
   speakeasyVersion: internal
   generationVersion: 2.272.4
-  releaseVersion: 0.0.2
-  configChecksum: 37d3efa99f0446fdfe5d31de1f25eb61
+  releaseVersion: 0.0.3
+  configChecksum: 4b8647fb243476475bbca9815b1ccb2b
   repoURL: https://github.com/ioniccommerce/ionic_sdk_ts.git
   repoSubDirectory: .
   installationURL: https://github.com/ioniccommerce/ionic_sdk_ts
