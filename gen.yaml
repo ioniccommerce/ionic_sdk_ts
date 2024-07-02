@@ -13,13 +13,15 @@ generation:
   baseServerURL: ""
   flattenGlobalSecurity: true
 typescript:
-  version: 0.0.3
+  version: 0.1.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
     peerDependencies: {}
+  additionalPackageJSON: {}
   author: Ionic
   clientServerStatusCodesAsErrors: true
+  enumFormat: union
   flattenGlobalSecurity: true
   imports:
     option: openapi
@@ -31,7 +33,9 @@ typescript:
       webhooks: models/webhooks
   inputModelSuffix: input
   maxMethodParams: 4
+  methodArguments: require-security-and-request
   outputModelSuffix: output
   packageName: '@ioniccommerce/ionic-sdk'
   responseFormat: envelope
   templateVersion: v2
+  useIndexModules: true

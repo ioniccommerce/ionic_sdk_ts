@@ -16,10 +16,25 @@
 npm add @ioniccommerce/ionic-sdk
 ```
 
+### PNPM
+
+```bash
+pnpm add @ioniccommerce/ionic-sdk
+```
+
+### Bun
+
+```bash
+bun add @ioniccommerce/ionic-sdk
+```
+
 ### Yarn
 
 ```bash
-yarn add @ioniccommerce/ionic-sdk
+yarn add @ioniccommerce/ionic-sdk zod
+
+# Note that Yarn does not install peer dependencies automatically. You will need
+# to install zod as shown above.
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -36,30 +51,30 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 
 ```typescript
 import { Ionic } from "@ioniccommerce/ionic-sdk";
-import { MessageRole, MessageType } from "@ioniccommerce/ionic-sdk/models/components";
+
+const ionic = new Ionic();
 
 async function run() {
-    const sdk = new Ionic();
-
-    const operationSecurity = {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    };
-
-    const result = await sdk.query(
+    const result = await ionic.createProductLink(
         {
-            messages: [
-                {
-                    content: "<value>",
-                    role: MessageRole.System,
-                    type: MessageType.Tag,
-                },
-            ],
-            query: {
-                query: "<value>",
+            clientDetails: {
+                ip: "185.113.33.24",
             },
-            session: {},
+            product: {
+                identifiers: {},
+                link: "http://negative-wording.biz",
+            },
+            query: {
+                q: "<value>",
+            },
+            userDetails: {
+                email: "Mitchell_DAmore49@hotmail.com",
+                id: "<id>",
+            },
         },
-        operationSecurity
+        {
+            apiKeyHeader: "<YOUR_API_KEY_HERE>",
+        }
     );
 
     // Handle the result
@@ -76,6 +91,7 @@ run();
 
 ### [Ionic SDK](docs/sdks/ionic/README.md)
 
+* [createProductLink](docs/sdks/ionic/README.md#createproductlink) - Ionic Commerce | Create Product Link
 * [query](docs/sdks/ionic/README.md#query) - Product Search
 <!-- End Available Resources and Operations [operations] -->
 
@@ -94,37 +110,37 @@ Validation errors can also occur when either method arguments or data returned f
 
 ```typescript
 import { Ionic } from "@ioniccommerce/ionic-sdk";
-import { MessageRole, MessageType } from "@ioniccommerce/ionic-sdk/models/components";
-import * as errors from "@ioniccommerce/ionic-sdk/models/errors";
+import { SDKValidationError } from "@ioniccommerce/ionic-sdk/models/errors";
+
+const ionic = new Ionic();
 
 async function run() {
-    const sdk = new Ionic();
-
-    const operationSecurity = {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    };
-
     let result;
     try {
-        result = await sdk.query(
+        result = await ionic.createProductLink(
             {
-                messages: [
-                    {
-                        content: "<value>",
-                        role: MessageRole.System,
-                        type: MessageType.Tag,
-                    },
-                ],
-                query: {
-                    query: "<value>",
+                clientDetails: {
+                    ip: "185.113.33.24",
                 },
-                session: {},
+                product: {
+                    identifiers: {},
+                    link: "http://negative-wording.biz",
+                },
+                query: {
+                    q: "<value>",
+                },
+                userDetails: {
+                    email: "Mitchell_DAmore49@hotmail.com",
+                    id: "<id>",
+                },
             },
-            operationSecurity
+            {
+                apiKeyHeader: "<YOUR_API_KEY_HERE>",
+            }
         );
     } catch (err) {
         switch (true) {
-            case err instanceof errors.SDKValidationError: {
+            case err instanceof SDKValidationError: {
                 // Validation errors can be pretty-printed
                 console.error(err.pretty());
                 // Raw value may also be inspected
@@ -163,32 +179,32 @@ You can override the default server globally by passing a server index to the `s
 
 ```typescript
 import { Ionic } from "@ioniccommerce/ionic-sdk";
-import { MessageRole, MessageType } from "@ioniccommerce/ionic-sdk/models/components";
+
+const ionic = new Ionic({
+    serverIdx: 0,
+});
 
 async function run() {
-    const sdk = new Ionic({
-        serverIdx: 0,
-    });
-
-    const operationSecurity = {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    };
-
-    const result = await sdk.query(
+    const result = await ionic.createProductLink(
         {
-            messages: [
-                {
-                    content: "<value>",
-                    role: MessageRole.System,
-                    type: MessageType.Tag,
-                },
-            ],
-            query: {
-                query: "<value>",
+            clientDetails: {
+                ip: "185.113.33.24",
             },
-            session: {},
+            product: {
+                identifiers: {},
+                link: "http://negative-wording.biz",
+            },
+            query: {
+                q: "<value>",
+            },
+            userDetails: {
+                email: "Mitchell_DAmore49@hotmail.com",
+                id: "<id>",
+            },
         },
-        operationSecurity
+        {
+            apiKeyHeader: "<YOUR_API_KEY_HERE>",
+        }
     );
 
     // Handle the result
@@ -206,32 +222,32 @@ The default server can also be overridden globally by passing a URL to the `serv
 
 ```typescript
 import { Ionic } from "@ioniccommerce/ionic-sdk";
-import { MessageRole, MessageType } from "@ioniccommerce/ionic-sdk/models/components";
+
+const ionic = new Ionic({
+    serverURL: "https://api.ioniccommerce.com",
+});
 
 async function run() {
-    const sdk = new Ionic({
-        serverURL: "https://api.ioniccommerce.com",
-    });
-
-    const operationSecurity = {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    };
-
-    const result = await sdk.query(
+    const result = await ionic.createProductLink(
         {
-            messages: [
-                {
-                    content: "<value>",
-                    role: MessageRole.System,
-                    type: MessageType.Tag,
-                },
-            ],
-            query: {
-                query: "<value>",
+            clientDetails: {
+                ip: "185.113.33.24",
             },
-            session: {},
+            product: {
+                identifiers: {},
+                link: "http://negative-wording.biz",
+            },
+            query: {
+                q: "<value>",
+            },
+            userDetails: {
+                email: "Mitchell_DAmore49@hotmail.com",
+                id: "<id>",
+            },
         },
-        operationSecurity
+        {
+            apiKeyHeader: "<YOUR_API_KEY_HERE>",
+        }
     );
 
     // Handle the result
@@ -273,7 +289,7 @@ const httpClient = new HTTPClient({
 
 httpClient.addHook("beforeRequest", (request) => {
   const nextRequest = new Request(request, {
-    signal: request.signal || AbortSignal.timeout(5000);
+    signal: request.signal || AbortSignal.timeout(5000)
   });
 
   nextRequest.headers.set("x-custom-header", "custom value");
@@ -311,30 +327,30 @@ To authenticate with the API the `apiKeyHeader` parameter must be set when initi
 Some operations in this SDK require the security scheme to be specified at the request level. For example:
 ```typescript
 import { Ionic } from "@ioniccommerce/ionic-sdk";
-import { MessageRole, MessageType } from "@ioniccommerce/ionic-sdk/models/components";
+
+const ionic = new Ionic();
 
 async function run() {
-    const sdk = new Ionic();
-
-    const operationSecurity = {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    };
-
-    const result = await sdk.query(
+    const result = await ionic.createProductLink(
         {
-            messages: [
-                {
-                    content: "<value>",
-                    role: MessageRole.System,
-                    type: MessageType.Tag,
-                },
-            ],
-            query: {
-                query: "<value>",
+            clientDetails: {
+                ip: "185.113.33.24",
             },
-            session: {},
+            product: {
+                identifiers: {},
+                link: "http://negative-wording.biz",
+            },
+            query: {
+                q: "<value>",
+            },
+            userDetails: {
+                email: "Mitchell_DAmore49@hotmail.com",
+                id: "<id>",
+            },
         },
-        operationSecurity
+        {
+            apiKeyHeader: "<YOUR_API_KEY_HERE>",
+        }
     );
 
     // Handle the result
