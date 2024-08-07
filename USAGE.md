@@ -1,30 +1,30 @@
 <!-- Start SDK Example Usage [usage] -->
 ```typescript
 import { Ionic } from "@ioniccommerce/ionic-sdk";
-import { MessageRole, MessageType } from "@ioniccommerce/ionic-sdk/models/components";
+
+const ionic = new Ionic();
 
 async function run() {
-    const sdk = new Ionic();
-
-    const operationSecurity = {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    };
-
-    const result = await sdk.query(
+    const result = await ionic.createProductLink(
         {
-            messages: [
-                {
-                    content: "<value>",
-                    role: MessageRole.System,
-                    type: MessageType.Tag,
-                },
-            ],
-            query: {
-                query: "<value>",
+            clientDetails: {
+                ip: "185.113.33.24",
             },
-            session: {},
+            product: {
+                identifiers: {},
+                link: "http://negative-wording.biz",
+            },
+            query: {
+                q: "<value>",
+            },
+            userDetails: {
+                email: "Mitchell_DAmore49@hotmail.com",
+                id: "<id>",
+            },
         },
-        operationSecurity
+        {
+            apiKeyHeader: "<YOUR_API_KEY_HERE>",
+        }
     );
 
     // Handle the result
