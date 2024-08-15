@@ -3,10 +3,10 @@ id: f33a88d3-7592-43ce-8436-66dc4989c954
 management:
   docChecksum: beef634374bba9f101a6f25fa9b153ba
   docVersion: "0.1"
-  speakeasyVersion: 1.361.1
-  generationVersion: 2.393.4
-  releaseVersion: 0.2.1
-  configChecksum: 502e4f5811b09797fe80b2d594694cea
+  speakeasyVersion: 1.368.0
+  generationVersion: 2.399.0
+  releaseVersion: 0.2.2
+  configChecksum: c32c574224704048829c7cded6c6ae01
   repoURL: https://github.com/ioniccommerce/ionic_sdk_ts.git
   repoSubDirectory: .
   installationURL: https://github.com/ioniccommerce/ionic_sdk_ts
@@ -14,8 +14,8 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    constsAndDefaults: 0.1.7
-    core: 3.13.1
+    constsAndDefaults: 0.1.8
+    core: 3.13.2
     defaultEnabledRetries: 0.1.0
     envVarSecurityUsage: 0.1.1
     globalSecurity: 2.82.11
@@ -33,6 +33,7 @@ generatedFiles:
   - src/sdk/sdk.ts
   - .eslintrc.cjs
   - .npmignore
+  - FUNCTIONS.md
   - RUNTIMES.md
   - jsr.json
   - package.json

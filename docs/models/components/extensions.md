@@ -1,5 +1,26 @@
 # Extensions
 
+## Example Usage
+
+```typescript
+import { Extensions } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: Extensions = {
+    merchants: {
+        data: [
+            {
+                images: {},
+                links: {},
+                price: {
+                    amount: 681820,
+                    currency: "Cayman Islands Dollar",
+                },
+                title: "<value>",
+            },
+        ],
+    },
+};
+```
 
 ## Fields
 

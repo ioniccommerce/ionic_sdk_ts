@@ -1,5 +1,12 @@
 # ProductIdentifiers
 
+## Example Usage
+
+```typescript
+import { ProductIdentifiers } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: ProductIdentifiers = {};
+```
 
 ## Fields
 

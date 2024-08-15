@@ -1,5 +1,16 @@
 # ValidationError
 
+## Example Usage
+
+```typescript
+import { ValidationError } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: ValidationError = {
+    loc: ["<value>"],
+    msg: "<value>",
+    type: "<value>",
+};
+```
 
 ## Fields
 

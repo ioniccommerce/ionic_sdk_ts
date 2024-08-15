@@ -1,5 +1,12 @@
 # Session
 
+## Example Usage
+
+```typescript
+import { Session } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: Session = {};
+```
 
 ## Fields
 

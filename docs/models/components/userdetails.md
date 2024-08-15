@@ -1,5 +1,15 @@
 # UserDetails
 
+## Example Usage
+
+```typescript
+import { UserDetails } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: UserDetails = {
+    email: "Joy.Breitenberg@hotmail.com",
+    id: "<id>",
+};
+```
 
 ## Fields
 

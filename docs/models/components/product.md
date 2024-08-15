@@ -1,5 +1,25 @@
 # Product
 
+## Example Usage
+
+```typescript
+import { Product } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: Product = {
+    links: [
+        {
+            text: "<value>",
+            type: "<value>",
+            url: "http://gaseous-ostrich.com",
+        },
+    ],
+    merchantName: "<value>",
+    merchantProductId: "<value>",
+    name: "<value>",
+    price: "613.00",
+    status: "<value>",
+};
+```
 
 ## Fields
 

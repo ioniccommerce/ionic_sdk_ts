@@ -1,5 +1,20 @@
 # ProductLinkResponse
 
+## Example Usage
+
+```typescript
+import { ProductLinkResponse } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: ProductLinkResponse = {
+    id: "<id>",
+    product: {
+        links: {
+            original: "http://whirlwind-diver.info",
+            tagged: "http://spotted-skyline.name",
+        },
+    },
+};
+```
 
 ## Fields
 

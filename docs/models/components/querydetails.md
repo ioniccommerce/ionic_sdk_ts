@@ -1,5 +1,14 @@
 # QueryDetails
 
+## Example Usage
+
+```typescript
+import { QueryDetails } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: QueryDetails = {
+    q: "<value>",
+};
+```
 
 ## Fields
 

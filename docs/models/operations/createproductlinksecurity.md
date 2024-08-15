@@ -1,5 +1,12 @@
 # CreateProductLinkSecurity
 
+## Example Usage
+
+```typescript
+import { CreateProductLinkSecurity } from "@ioniccommerce/ionic-sdk/models/operations";
+
+let value: CreateProductLinkSecurity = {};
+```
 
 ## Fields
 

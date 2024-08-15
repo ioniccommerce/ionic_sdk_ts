@@ -2,12 +2,16 @@
 
 An enumeration.
 
+## Example Usage
+
+```typescript
+import { ShippingAttribute } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: ShippingAttribute = "free_shipping";
+```
 
 ## Values
 
-| Name             | Value            |
-| ---------------- | ---------------- |
-| `FreeShipping`   | free_shipping    |
-| `OneDayShipping` | one_day_shipping |
-| `TwoDayShipping` | two_day_shipping |
-| `InStorePickup`  | in_store_pickup  |
+```typescript
+"free_shipping" | "one_day_shipping" | "two_day_shipping" | "in_store_pickup"
+```

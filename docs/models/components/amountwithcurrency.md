@@ -1,5 +1,12 @@
 # AmountWithCurrency
 
+## Example Usage
+
+```typescript
+import { AmountWithCurrency } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: AmountWithCurrency = {};
+```
 
 ## Fields
 

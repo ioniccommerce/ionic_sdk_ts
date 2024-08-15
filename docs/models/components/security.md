@@ -1,5 +1,12 @@
 # Security
 
+## Example Usage
+
+```typescript
+import { Security } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: Security = {};
+```
 
 ## Fields
 

@@ -1,5 +1,12 @@
 # Loc
 
+## Example Usage
+
+```typescript
+import { Loc } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: Loc = 978619;
+```
 
 ## Supported Types
 

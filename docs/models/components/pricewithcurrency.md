@@ -1,5 +1,15 @@
 # PriceWithCurrency
 
+## Example Usage
+
+```typescript
+import { PriceWithCurrency } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: PriceWithCurrency = {
+    amount: 697631,
+    currency: "Bermudian Dollar (customarily known as Bermuda Dollar)",
+};
+```
 
 ## Fields
 

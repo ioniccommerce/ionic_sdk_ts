@@ -1,5 +1,12 @@
 # QuerySecurity
 
+## Example Usage
+
+```typescript
+import { QuerySecurity } from "@ioniccommerce/ionic-sdk/models/operations";
+
+let value: QuerySecurity = {};
+```
 
 ## Fields
 

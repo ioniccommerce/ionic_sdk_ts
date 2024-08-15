@@ -1,5 +1,18 @@
 # QueryResponse
 
+## Example Usage
+
+```typescript
+import { QueryResponse } from "@ioniccommerce/ionic-sdk/models/operations";
+
+let value: QueryResponse = {
+    contentType: "<value>",
+    statusCode: 891773,
+    rawResponse: new Response('{"message": "hello world"}', {
+        headers: { "Content-Type": "application/json" },
+    }),
+};
+```
 
 ## Fields
 

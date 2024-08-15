@@ -1,5 +1,16 @@
 # QueryAPIRequest
 
+## Example Usage
+
+```typescript
+import { QueryAPIRequest } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: QueryAPIRequest = {
+    query: {
+        query: "<value>",
+    },
+};
+```
 
 ## Fields
 

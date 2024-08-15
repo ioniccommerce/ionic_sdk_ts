@@ -1,5 +1,15 @@
 # ProductDetails
 
+## Example Usage
+
+```typescript
+import { ProductDetails } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: ProductDetails = {
+    identifiers: {},
+    link: "http://dental-schedule.net",
+};
+```
 
 ## Fields
 

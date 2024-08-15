@@ -1,5 +1,12 @@
 # ExtensionLinks
 
+## Example Usage
+
+```typescript
+import { ExtensionLinks } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: ExtensionLinks = {};
+```
 
 ## Fields
 

@@ -1,5 +1,14 @@
 # ClientDetails
 
+## Example Usage
+
+```typescript
+import { ClientDetails } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: ClientDetails = {
+    ip: "116.55.145.34",
+};
+```
 
 ## Fields
 

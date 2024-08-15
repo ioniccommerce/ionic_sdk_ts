@@ -1,5 +1,20 @@
 # ExtensionObject
 
+## Example Usage
+
+```typescript
+import { ExtensionObject } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: ExtensionObject = {
+    images: {},
+    links: {},
+    price: {
+        amount: 437032,
+        currency: "European Monetary Unit (E.M.U.-6)",
+    },
+    title: "<value>",
+};
+```
 
 ## Fields
 

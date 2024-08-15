@@ -1,5 +1,18 @@
 # CreateProductLinkResponse
 
+## Example Usage
+
+```typescript
+import { CreateProductLinkResponse } from "@ioniccommerce/ionic-sdk/models/operations";
+
+let value: CreateProductLinkResponse = {
+    contentType: "<value>",
+    statusCode: 297534,
+    rawResponse: new Response('{"message": "hello world"}', {
+        headers: { "Content-Type": "application/json" },
+    }),
+};
+```
 
 ## Fields
 

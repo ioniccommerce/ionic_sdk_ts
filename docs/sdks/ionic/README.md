@@ -48,6 +48,52 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { IonicCore } from "@ioniccommerce/ionic-sdk/core.js";
+import { createProductLink } from "@ioniccommerce/ionic-sdk/funcs/createProductLink.js";
+
+// Use `IonicCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const ionic = new IonicCore();
+
+async function run() {
+  const res = await createProductLink(ionic, {
+    clientDetails: {
+      ip: "84.212.106.125",
+    },
+    product: {
+      identifiers: {},
+      link: "http://strict-cursor.name",
+    },
+    query: {
+      q: "<value>",
+    },
+    userDetails: {
+      email: "Constantin4@yahoo.com",
+      id: "<id>",
+    },
+  }, {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -88,6 +134,41 @@ async function run() {
   }, {
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { IonicCore } from "@ioniccommerce/ionic-sdk/core.js";
+import { query } from "@ioniccommerce/ionic-sdk/funcs/query.js";
+
+// Use `IonicCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const ionic = new IonicCore();
+
+async function run() {
+  const res = await query(ionic, {
+    query: {
+      query: "<value>",
+    },
+  }, {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)

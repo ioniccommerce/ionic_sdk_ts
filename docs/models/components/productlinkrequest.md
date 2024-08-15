@@ -1,5 +1,27 @@
 # ProductLinkRequest
 
+## Example Usage
+
+```typescript
+import { ProductLinkRequest } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: ProductLinkRequest = {
+    clientDetails: {
+        ip: "204.205.118.133",
+    },
+    product: {
+        identifiers: {},
+        link: "https://rash-butcher.net",
+    },
+    query: {
+        q: "<value>",
+    },
+    userDetails: {
+        email: "Kristina_Conroy@yahoo.com",
+        id: "<id>",
+    },
+};
+```
 
 ## Fields
 

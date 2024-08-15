@@ -1,5 +1,16 @@
 # Link
 
+## Example Usage
+
+```typescript
+import { Link } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: Link = {
+    text: "<value>",
+    type: "<value>",
+    url: "https://hoarse-upper.org",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,24 @@
 # Extension
 
+## Example Usage
+
+```typescript
+import { Extension } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: Extension = {
+    data: [
+        {
+            images: {},
+            links: {},
+            price: {
+                amount: 359508,
+                currency: "Rial Omani",
+            },
+            title: "<value>",
+        },
+    ],
+};
+```
 
 ## Fields
 

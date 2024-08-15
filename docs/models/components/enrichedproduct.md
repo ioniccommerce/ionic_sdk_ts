@@ -1,5 +1,17 @@
 # EnrichedProduct
 
+## Example Usage
+
+```typescript
+import { EnrichedProduct } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: EnrichedProduct = {
+    links: {
+        original: "http://nice-gorilla.org",
+        tagged: "https://bite-sized-favorite.com",
+    },
+};
+```
 
 ## Fields
 

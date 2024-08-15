@@ -1,5 +1,15 @@
 # TaggedLink
 
+## Example Usage
+
+```typescript
+import { TaggedLink } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: TaggedLink = {
+    original: "https://agitated-friendship.net",
+    tagged: "https://spherical-caviar.org",
+};
+```
 
 ## Fields
 

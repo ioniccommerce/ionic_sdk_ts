@@ -1,5 +1,12 @@
 # ExtensionImages
 
+## Example Usage
+
+```typescript
+import { ExtensionImages } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: ExtensionImages = {};
+```
 
 ## Fields
 
