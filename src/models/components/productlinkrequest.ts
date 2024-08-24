@@ -48,7 +48,7 @@ export const ProductLinkRequest$inboundSchema: z.ZodType<
     .object({
         client_details: ClientDetails$inboundSchema,
         idempotency_key: z.string().optional(),
-        log_only: z.boolean(),
+        log_only: z.boolean().default(false),
         product: ProductDetails$inboundSchema,
         query: QueryDetails$inboundSchema,
         reference_id: z.string().optional(),
