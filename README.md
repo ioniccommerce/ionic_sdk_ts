@@ -7,8 +7,32 @@
     </a>
 </div>
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Ionic Commerce | Core API: Ionic Commerce API
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [Requirements](#requirements)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Standalone functions](#standalone-functions)
+* [Retries](#retries)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Custom HTTP Client](#custom-http-client)
+* [Authentication](#authentication)
+* [Debugging](#debugging)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
+
+The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
 
 ### NPM
 
@@ -110,7 +134,7 @@ Validation errors can also occur when either method arguments or data returned f
 
 ```typescript
 import { Ionic } from "@ioniccommerce/ionic-sdk";
-import { SDKValidationError } from "@ioniccommerce/ionic-sdk/models/errors";
+import { HTTPValidationError, SDKValidationError } from "@ioniccommerce/ionic-sdk/models/errors";
 
 const ionic = new Ionic();
 
@@ -147,8 +171,9 @@ async function run() {
                 console.error(err.rawValue);
                 return;
             }
-            case err instanceof errors.HTTPValidationError: {
-                console.error(err); // handle exception
+            case err instanceof HTTPValidationError: {
+                // Handle err.data$: HTTPValidationErrorData
+                console.error(err);
                 return;
             }
             default: {

@@ -87,7 +87,7 @@ export async function createProductLink(
     const context = {
         operationID: "create_product_link",
         oAuth2Scopes: [],
-        securitySource: security$,
+        securitySource: security,
     };
 
     const requestRes = client$.createRequest$(

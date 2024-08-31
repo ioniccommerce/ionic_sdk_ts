@@ -84,7 +84,7 @@ export async function query(
         ],
     ];
     const securitySettings$ = resolveSecurity(...security$);
-    const context = { operationID: "query", oAuth2Scopes: [], securitySource: security$ };
+    const context = { operationID: "query", oAuth2Scopes: [], securitySource: security };
 
     const requestRes = client$.createRequest$(
         context,
