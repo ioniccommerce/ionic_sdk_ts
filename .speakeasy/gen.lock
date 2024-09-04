@@ -3,10 +3,10 @@ id: f33a88d3-7592-43ce-8436-66dc4989c954
 management:
   docChecksum: beef634374bba9f101a6f25fa9b153ba
   docVersion: "0.1"
-  speakeasyVersion: 1.385.0
-  generationVersion: 2.407.2
-  releaseVersion: 0.3.2
-  configChecksum: 89b78be1b4605be120d8a6854a3048bd
+  speakeasyVersion: 1.390.1
+  generationVersion: 2.409.0
+  releaseVersion: 0.4.0
+  configChecksum: 5a0b52f9f7c5df7e0f104c3b4ab84570
   repoURL: https://github.com/ioniccommerce/ionic_sdk_ts.git
   repoSubDirectory: .
   installationURL: https://github.com/ioniccommerce/ionic_sdk_ts
@@ -15,7 +15,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.14.2
+    core: 3.16.0
     defaultEnabledRetries: 0.1.0
     envVarSecurityUsage: 0.1.1
     globalSecurity: 2.82.11
@@ -43,6 +43,7 @@ generatedFiles:
   - src/lib/config.ts
   - src/lib/dlv.ts
   - src/lib/encodings.ts
+  - src/lib/files.ts
   - src/lib/http.ts
   - src/lib/is-plain-object.ts
   - src/lib/logger.ts
@@ -64,6 +65,7 @@ generatedFiles:
   - src/types/index.ts
   - src/types/operations.ts
   - src/types/rfcdate.ts
+  - src/types/streams.ts
   - tsconfig.json
   - src/models/operations/createproductlink.ts
   - src/models/operations/query.ts
