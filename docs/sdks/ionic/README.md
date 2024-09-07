@@ -62,17 +62,17 @@ const ionic = new IonicCore();
 async function run() {
   const res = await createProductLink(ionic, {
     clientDetails: {
-      ip: "84.212.106.125",
+      ip: "185.113.33.24",
     },
     product: {
       identifiers: {},
-      link: "http://strict-cursor.name",
+      link: "http://negative-wording.biz",
     },
     query: {
       q: "<value>",
     },
     userDetails: {
-      email: "Constantin4@yahoo.com",
+      email: "Mitchell_DAmore49@hotmail.com",
       id: "<id>",
     },
   }, {

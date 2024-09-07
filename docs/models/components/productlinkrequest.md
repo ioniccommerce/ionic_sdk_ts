@@ -7,17 +7,17 @@ import { ProductLinkRequest } from "@ioniccommerce/ionic-sdk/models/components";
 
 let value: ProductLinkRequest = {
     clientDetails: {
-        ip: "204.205.118.133",
+        ip: "86.22.165.5",
     },
     product: {
         identifiers: {},
-        link: "https://rash-butcher.net",
+        link: "http://sympathetic-viewer.net",
     },
     query: {
         q: "<value>",
     },
     userDetails: {
-        email: "Kristina_Conroy@yahoo.com",
+        email: "Sarah.Strosin79@gmail.com",
         id: "<id>",
     },
 };

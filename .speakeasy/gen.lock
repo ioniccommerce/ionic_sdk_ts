@@ -3,10 +3,10 @@ id: f33a88d3-7592-43ce-8436-66dc4989c954
 management:
   docChecksum: beef634374bba9f101a6f25fa9b153ba
   docVersion: "0.1"
-  speakeasyVersion: 1.390.7
-  generationVersion: 2.409.8
-  releaseVersion: 0.4.1
-  configChecksum: 5326a73b48991dc39bd63c5d2bbab586
+  speakeasyVersion: 1.392.1
+  generationVersion: 2.411.9
+  releaseVersion: 0.4.2
+  configChecksum: 32b5c45191c0fa728a4437ecfa09e95a
   repoURL: https://github.com/ioniccommerce/ionic_sdk_ts.git
   repoSubDirectory: .
   installationURL: https://github.com/ioniccommerce/ionic_sdk_ts
@@ -15,7 +15,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.16.1
+    core: 3.16.4
     defaultEnabledRetries: 0.1.0
     envVarSecurityUsage: 0.1.1
     globalSecurity: 2.82.11
@@ -28,16 +28,58 @@ features:
     sdkHooks: 0.1.0
     unions: 2.85.7
 generatedFiles:
-  - src/funcs/createProductLink.ts
-  - src/funcs/query.ts
-  - src/sdk/sdk.ts
   - .eslintrc.cjs
+  - .gitattributes
   - .npmignore
+  - CONTRIBUTING.md
   - FUNCTIONS.md
   - RUNTIMES.md
+  - USAGE.md
+  - docs/lib/utils/retryconfig.md
+  - docs/models/components/amountwithcurrency.md
+  - docs/models/components/clientdetails.md
+  - docs/models/components/enrichedproduct.md
+  - docs/models/components/extension.md
+  - docs/models/components/extensionimages.md
+  - docs/models/components/extensionlinks.md
+  - docs/models/components/extensionobject.md
+  - docs/models/components/extensions.md
+  - docs/models/components/link.md
+  - docs/models/components/loc.md
+  - docs/models/components/message.md
+  - docs/models/components/messagerole.md
+  - docs/models/components/messagetype.md
+  - docs/models/components/pricewithcurrency.md
+  - docs/models/components/product.md
+  - docs/models/components/productdetails.md
+  - docs/models/components/productidentifiers.md
+  - docs/models/components/productlinkrequest.md
+  - docs/models/components/productlinkresponse.md
+  - docs/models/components/query.md
+  - docs/models/components/queryapirequest.md
+  - docs/models/components/queryapiresponse.md
+  - docs/models/components/querydetails.md
+  - docs/models/components/queryresult.md
+  - docs/models/components/security.md
+  - docs/models/components/session.md
+  - docs/models/components/shippingattribute.md
+  - docs/models/components/taggedlink.md
+  - docs/models/components/userdetails.md
+  - docs/models/components/validationerror.md
+  - docs/models/errors/httpvalidationerror.md
+  - docs/models/operations/createproductlinkresponse.md
+  - docs/models/operations/createproductlinksecurity.md
+  - docs/models/operations/queryresponse.md
+  - docs/models/operations/querysecurity.md
+  - docs/sdks/ionic/README.md
   - jsr.json
   - package.json
   - src/core.ts
+  - src/funcs/createProductLink.ts
+  - src/funcs/query.ts
+  - src/hooks/hooks.ts
+  - src/hooks/index.ts
+  - src/hooks/types.ts
   - src/index.ts
   - src/lib/base64.ts
   - src/lib/config.ts
@@ -54,10 +96,46 @@ generatedFiles:
   - src/lib/sdks.ts
   - src/lib/security.ts
   - src/lib/url.ts
-  - src/sdk/index.ts
+  - src/models/components/amountwithcurrency.ts
+  - src/models/components/clientdetails.ts
+  - src/models/components/enrichedproduct.ts
+  - src/models/components/extension.ts
+  - src/models/components/extensionimages.ts
+  - src/models/components/extensionlinks.ts
+  - src/models/components/extensionobject.ts
+  - src/models/components/extensions.ts
+  - src/models/components/index.ts
+  - src/models/components/link.ts
+  - src/models/components/message.ts
+  - src/models/components/messagerole.ts
+  - src/models/components/messagetype.ts
+  - src/models/components/pricewithcurrency.ts
+  - src/models/components/product.ts
+  - src/models/components/productdetails.ts
+  - src/models/components/productidentifiers.ts
+  - src/models/components/productlinkrequest.ts
+  - src/models/components/productlinkresponse.ts
+  - src/models/components/query.ts
+  - src/models/components/queryapirequest.ts
+  - src/models/components/queryapiresponse.ts
+  - src/models/components/querydetails.ts
+  - src/models/components/queryresult.ts
+  - src/models/components/security.ts
+  - src/models/components/session.ts
+  - src/models/components/shippingattribute.ts
+  - src/models/components/taggedlink.ts
+  - src/models/components/userdetails.ts
+  - src/models/components/validationerror.ts
   - src/models/errors/httpclienterrors.ts
+  - src/models/errors/httpvalidationerror.ts
+  - src/models/errors/index.ts
   - src/models/errors/sdkerror.ts
   - src/models/errors/sdkvalidationerror.ts
+  - src/models/operations/createproductlink.ts
+  - src/models/operations/index.ts
+  - src/models/operations/query.ts
+  - src/sdk/index.ts
+  - src/sdk/sdk.ts
   - src/types/blobs.ts
   - src/types/constdatetime.ts
   - src/types/enums.ts
@@ -67,81 +145,12 @@ generatedFiles:
   - src/types/rfcdate.ts
   - src/types/streams.ts
   - tsconfig.json
-  - src/models/operations/createproductlink.ts
-  - src/models/operations/query.ts
-  - src/models/components/productlinkresponse.ts
-  - src/models/components/enrichedproduct.ts
-  - src/models/components/taggedlink.ts
-  - src/models/components/validationerror.ts
-  - src/models/components/productlinkrequest.ts
-  - src/models/components/userdetails.ts
-  - src/models/components/querydetails.ts
-  - src/models/components/productdetails.ts
-  - src/models/components/amountwithcurrency.ts
-  - src/models/components/productidentifiers.ts
-  - src/models/components/clientdetails.ts
-  - src/models/components/queryapiresponse.ts
-  - src/models/components/queryresult.ts
-  - src/models/components/query.ts
-  - src/models/components/product.ts
-  - src/models/components/shippingattribute.ts
-  - src/models/components/link.ts
-  - src/models/components/extensions.ts
-  - src/models/components/extension.ts
-  - src/models/components/extensionobject.ts
-  - src/models/components/pricewithcurrency.ts
-  - src/models/components/extensionlinks.ts
-  - src/models/components/extensionimages.ts
-  - src/models/components/queryapirequest.ts
-  - src/models/components/session.ts
-  - src/models/components/message.ts
-  - src/models/components/messagetype.ts
-  - src/models/components/messagerole.ts
-  - src/models/components/security.ts
-  - src/models/errors/httpvalidationerror.ts
-  - src/models/errors/index.ts
-  - src/models/operations/index.ts
-  - src/models/components/index.ts
-  - docs/models/operations/createproductlinksecurity.md
-  - docs/models/operations/createproductlinkresponse.md
-  - docs/models/operations/querysecurity.md
-  - docs/models/operations/queryresponse.md
-  - docs/models/components/productlinkresponse.md
-  - docs/models/components/enrichedproduct.md
-  - docs/models/components/taggedlink.md
-  - docs/models/components/loc.md
-  - docs/models/components/validationerror.md
-  - docs/models/components/productlinkrequest.md
-  - docs/models/components/userdetails.md
-  - docs/models/components/querydetails.md
-  - docs/models/components/productdetails.md
-  - docs/models/components/amountwithcurrency.md
-  - docs/models/components/productidentifiers.md
-  - docs/models/components/clientdetails.md
-  - docs/models/components/queryapiresponse.md
-  - docs/models/components/queryresult.md
-  - docs/models/components/query.md
-  - docs/models/components/product.md
-  - docs/models/components/shippingattribute.md
-  - docs/models/components/link.md
-  - docs/models/components/extensions.md
-  - docs/models/components/extension.md
-  - docs/models/components/extensionobject.md
-  - docs/models/components/pricewithcurrency.md
-  - docs/models/components/extensionlinks.md
-  - docs/models/components/extensionimages.md
-  - docs/models/components/queryapirequest.md
-  - docs/models/components/session.md
-  - docs/models/components/message.md
-  - docs/models/components/messagetype.md
-  - docs/models/components/messagerole.md
-  - docs/models/components/security.md
-  - docs/models/errors/httpvalidationerror.md
-  - docs/lib/utils/retryconfig.md
-  - docs/sdks/ionic/README.md
-  - USAGE.md
-  - .gitattributes
-  - src/hooks/hooks.ts
-  - src/hooks/types.ts
-  - src/hooks/index.ts
-  - CONTRIBUTING.md
+examples:
+  create_product_link:
+    speakeasy-default-create-product-link:
+      requestBody:
+        application/json: {"client_details": {"ip": "185.113.33.24"}, "product": {"link": "http://negative-wording.biz"}, "query": {"q": "<value>"}, "user_details": {"email": "Mitchell_DAmore49@hotmail.com", "id": "<id>"}}
+  query:
+    speakeasy-default-query:
+      requestBody:
+        application/json: {"query": {"query": "<value>"}}

@@ -6,7 +6,7 @@
 import { UserDetails } from "@ioniccommerce/ionic-sdk/models/components";
 
 let value: UserDetails = {
-    email: "Joy.Breitenberg@hotmail.com",
+    email: "Jakayla_Lebsack11@hotmail.com",
     id: "<id>",
 };
 ```

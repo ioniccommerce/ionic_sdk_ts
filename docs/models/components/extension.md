@@ -11,7 +11,7 @@ let value: Extension = {
             images: {},
             links: {},
             price: {
-                amount: 359508,
+                amount: 324141,
                 currency: "Rial Omani",
             },
             title: "<value>",

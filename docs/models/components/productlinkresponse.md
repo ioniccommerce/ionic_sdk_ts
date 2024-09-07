@@ -9,8 +9,8 @@ let value: ProductLinkResponse = {
     id: "<id>",
     product: {
         links: {
-            original: "http://whirlwind-diver.info",
-            tagged: "http://spotted-skyline.name",
+            original: "https://terrible-nutrient.org",
+            tagged: "https://that-hellcat.name",
         },
     },
 };

@@ -7,7 +7,7 @@ An enumeration.
 ```typescript
 import { MessageType } from "@ioniccommerce/ionic-sdk/models/components";
 
-let value: MessageType = "filter";
+let value: MessageType = "tag";
 ```
 
 ## Values

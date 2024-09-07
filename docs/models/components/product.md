@@ -10,13 +10,13 @@ let value: Product = {
         {
             text: "<value>",
             type: "<value>",
-            url: "http://gaseous-ostrich.com",
+            url: "http://immense-investor.biz",
         },
     ],
     merchantName: "<value>",
     merchantProductId: "<value>",
     name: "<value>",
-    price: "613.00",
+    price: "187.00",
     status: "<value>",
 };
 ```
