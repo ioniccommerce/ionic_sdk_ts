@@ -5,38 +5,45 @@
 import * as z from "zod";
 
 export type TaggedLink = {
-    original: string;
-    tagged: string;
+  original: string;
+  tagged: string;
 };
 
 /** @internal */
-export const TaggedLink$inboundSchema: z.ZodType<TaggedLink, z.ZodTypeDef, unknown> = z.object({
-    original: z.string(),
-    tagged: z.string(),
+export const TaggedLink$inboundSchema: z.ZodType<
+  TaggedLink,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  original: z.string(),
+  tagged: z.string(),
 });
 
 /** @internal */
 export type TaggedLink$Outbound = {
-    original: string;
-    tagged: string;
+  original: string;
+  tagged: string;
 };
 
 /** @internal */
-export const TaggedLink$outboundSchema: z.ZodType<TaggedLink$Outbound, z.ZodTypeDef, TaggedLink> =
-    z.object({
-        original: z.string(),
-        tagged: z.string(),
-    });
+export const TaggedLink$outboundSchema: z.ZodType<
+  TaggedLink$Outbound,
+  z.ZodTypeDef,
+  TaggedLink
+> = z.object({
+  original: z.string(),
+  tagged: z.string(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace TaggedLink$ {
-    /** @deprecated use `TaggedLink$inboundSchema` instead. */
-    export const inboundSchema = TaggedLink$inboundSchema;
-    /** @deprecated use `TaggedLink$outboundSchema` instead. */
-    export const outboundSchema = TaggedLink$outboundSchema;
-    /** @deprecated use `TaggedLink$Outbound` instead. */
-    export type Outbound = TaggedLink$Outbound;
+  /** @deprecated use `TaggedLink$inboundSchema` instead. */
+  export const inboundSchema = TaggedLink$inboundSchema;
+  /** @deprecated use `TaggedLink$outboundSchema` instead. */
+  export const outboundSchema = TaggedLink$outboundSchema;
+  /** @deprecated use `TaggedLink$Outbound` instead. */
+  export type Outbound = TaggedLink$Outbound;
 }

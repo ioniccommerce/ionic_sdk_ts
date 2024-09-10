@@ -5,27 +5,30 @@
 import * as z from "zod";
 
 export type ExtensionImages = {
-    thumbnail?: string | undefined;
+  thumbnail?: string | undefined;
 };
 
 /** @internal */
-export const ExtensionImages$inboundSchema: z.ZodType<ExtensionImages, z.ZodTypeDef, unknown> =
-    z.object({
-        thumbnail: z.string().optional(),
-    });
+export const ExtensionImages$inboundSchema: z.ZodType<
+  ExtensionImages,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  thumbnail: z.string().optional(),
+});
 
 /** @internal */
 export type ExtensionImages$Outbound = {
-    thumbnail?: string | undefined;
+  thumbnail?: string | undefined;
 };
 
 /** @internal */
 export const ExtensionImages$outboundSchema: z.ZodType<
-    ExtensionImages$Outbound,
-    z.ZodTypeDef,
-    ExtensionImages
+  ExtensionImages$Outbound,
+  z.ZodTypeDef,
+  ExtensionImages
 > = z.object({
-    thumbnail: z.string().optional(),
+  thumbnail: z.string().optional(),
 });
 
 /**
@@ -33,10 +36,10 @@ export const ExtensionImages$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace ExtensionImages$ {
-    /** @deprecated use `ExtensionImages$inboundSchema` instead. */
-    export const inboundSchema = ExtensionImages$inboundSchema;
-    /** @deprecated use `ExtensionImages$outboundSchema` instead. */
-    export const outboundSchema = ExtensionImages$outboundSchema;
-    /** @deprecated use `ExtensionImages$Outbound` instead. */
-    export type Outbound = ExtensionImages$Outbound;
+  /** @deprecated use `ExtensionImages$inboundSchema` instead. */
+  export const inboundSchema = ExtensionImages$inboundSchema;
+  /** @deprecated use `ExtensionImages$outboundSchema` instead. */
+  export const outboundSchema = ExtensionImages$outboundSchema;
+  /** @deprecated use `ExtensionImages$Outbound` instead. */
+  export type Outbound = ExtensionImages$Outbound;
 }

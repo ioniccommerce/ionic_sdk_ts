@@ -6,8 +6,8 @@
 import { TaggedLink } from "@ioniccommerce/ionic-sdk/models/components";
 
 let value: TaggedLink = {
-    original: "http://lasting-sex.net",
-    tagged: "https://lawful-missionary.info",
+  original: "http://lasting-sex.net",
+  tagged: "https://lawful-missionary.info",
 };
 ```
 

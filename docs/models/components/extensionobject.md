@@ -6,13 +6,13 @@
 import { ExtensionObject } from "@ioniccommerce/ionic-sdk/models/components";
 
 let value: ExtensionObject = {
-    images: {},
-    links: {},
-    price: {
-        amount: 149675,
-        currency: "Rial Omani",
-    },
-    title: "<value>",
+  images: {},
+  links: {},
+  price: {
+    amount: 149675,
+    currency: "Rial Omani",
+  },
+  title: "<value>",
 };
 ```
 

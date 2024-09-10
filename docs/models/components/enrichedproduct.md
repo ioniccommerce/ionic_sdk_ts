@@ -6,10 +6,10 @@
 import { EnrichedProduct } from "@ioniccommerce/ionic-sdk/models/components";
 
 let value: EnrichedProduct = {
-    links: {
-        original: "https://high-hound.biz",
-        tagged: "https://awesome-voter.biz",
-    },
+  links: {
+    original: "https://high-hound.biz",
+    tagged: "https://awesome-voter.biz",
+  },
 };
 ```
 

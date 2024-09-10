@@ -5,41 +5,43 @@
 import * as z from "zod";
 
 export type Link = {
-    text: string;
-    type: string;
-    url: string;
+  text: string;
+  type: string;
+  url: string;
 };
 
 /** @internal */
-export const Link$inboundSchema: z.ZodType<Link, z.ZodTypeDef, unknown> = z.object({
+export const Link$inboundSchema: z.ZodType<Link, z.ZodTypeDef, unknown> = z
+  .object({
     text: z.string(),
     type: z.string(),
     url: z.string(),
-});
+  });
 
 /** @internal */
 export type Link$Outbound = {
-    text: string;
-    type: string;
-    url: string;
+  text: string;
+  type: string;
+  url: string;
 };
 
 /** @internal */
-export const Link$outboundSchema: z.ZodType<Link$Outbound, z.ZodTypeDef, Link> = z.object({
+export const Link$outboundSchema: z.ZodType<Link$Outbound, z.ZodTypeDef, Link> =
+  z.object({
     text: z.string(),
     type: z.string(),
     url: z.string(),
-});
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace Link$ {
-    /** @deprecated use `Link$inboundSchema` instead. */
-    export const inboundSchema = Link$inboundSchema;
-    /** @deprecated use `Link$outboundSchema` instead. */
-    export const outboundSchema = Link$outboundSchema;
-    /** @deprecated use `Link$Outbound` instead. */
-    export type Outbound = Link$Outbound;
+  /** @deprecated use `Link$inboundSchema` instead. */
+  export const inboundSchema = Link$inboundSchema;
+  /** @deprecated use `Link$outboundSchema` instead. */
+  export const outboundSchema = Link$outboundSchema;
+  /** @deprecated use `Link$Outbound` instead. */
+  export type Outbound = Link$Outbound;
 }

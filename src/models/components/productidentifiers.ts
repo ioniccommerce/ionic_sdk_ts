@@ -5,54 +5,54 @@
 import * as z from "zod";
 
 export type ProductIdentifiers = {
-    asin?: string | undefined;
-    ean?: string | undefined;
-    gtin?: string | undefined;
-    isbn?: string | undefined;
-    sku?: string | undefined;
-    tcin?: string | undefined;
-    upc?: string | undefined;
+  asin?: string | undefined;
+  ean?: string | undefined;
+  gtin?: string | undefined;
+  isbn?: string | undefined;
+  sku?: string | undefined;
+  tcin?: string | undefined;
+  upc?: string | undefined;
 };
 
 /** @internal */
 export const ProductIdentifiers$inboundSchema: z.ZodType<
-    ProductIdentifiers,
-    z.ZodTypeDef,
-    unknown
+  ProductIdentifiers,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    asin: z.string().optional(),
-    ean: z.string().optional(),
-    gtin: z.string().optional(),
-    isbn: z.string().optional(),
-    sku: z.string().optional(),
-    tcin: z.string().optional(),
-    upc: z.string().optional(),
+  asin: z.string().optional(),
+  ean: z.string().optional(),
+  gtin: z.string().optional(),
+  isbn: z.string().optional(),
+  sku: z.string().optional(),
+  tcin: z.string().optional(),
+  upc: z.string().optional(),
 });
 
 /** @internal */
 export type ProductIdentifiers$Outbound = {
-    asin?: string | undefined;
-    ean?: string | undefined;
-    gtin?: string | undefined;
-    isbn?: string | undefined;
-    sku?: string | undefined;
-    tcin?: string | undefined;
-    upc?: string | undefined;
+  asin?: string | undefined;
+  ean?: string | undefined;
+  gtin?: string | undefined;
+  isbn?: string | undefined;
+  sku?: string | undefined;
+  tcin?: string | undefined;
+  upc?: string | undefined;
 };
 
 /** @internal */
 export const ProductIdentifiers$outboundSchema: z.ZodType<
-    ProductIdentifiers$Outbound,
-    z.ZodTypeDef,
-    ProductIdentifiers
+  ProductIdentifiers$Outbound,
+  z.ZodTypeDef,
+  ProductIdentifiers
 > = z.object({
-    asin: z.string().optional(),
-    ean: z.string().optional(),
-    gtin: z.string().optional(),
-    isbn: z.string().optional(),
-    sku: z.string().optional(),
-    tcin: z.string().optional(),
-    upc: z.string().optional(),
+  asin: z.string().optional(),
+  ean: z.string().optional(),
+  gtin: z.string().optional(),
+  isbn: z.string().optional(),
+  sku: z.string().optional(),
+  tcin: z.string().optional(),
+  upc: z.string().optional(),
 });
 
 /**
@@ -60,10 +60,10 @@ export const ProductIdentifiers$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace ProductIdentifiers$ {
-    /** @deprecated use `ProductIdentifiers$inboundSchema` instead. */
-    export const inboundSchema = ProductIdentifiers$inboundSchema;
-    /** @deprecated use `ProductIdentifiers$outboundSchema` instead. */
-    export const outboundSchema = ProductIdentifiers$outboundSchema;
-    /** @deprecated use `ProductIdentifiers$Outbound` instead. */
-    export type Outbound = ProductIdentifiers$Outbound;
+  /** @deprecated use `ProductIdentifiers$inboundSchema` instead. */
+  export const inboundSchema = ProductIdentifiers$inboundSchema;
+  /** @deprecated use `ProductIdentifiers$outboundSchema` instead. */
+  export const outboundSchema = ProductIdentifiers$outboundSchema;
+  /** @deprecated use `ProductIdentifiers$Outbound` instead. */
+  export type Outbound = ProductIdentifiers$Outbound;
 }

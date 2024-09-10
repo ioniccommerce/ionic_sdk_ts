@@ -5,31 +5,34 @@
 import * as z from "zod";
 
 export type PriceWithCurrency = {
-    amount: number;
-    currency: string;
+  amount: number;
+  currency: string;
 };
 
 /** @internal */
-export const PriceWithCurrency$inboundSchema: z.ZodType<PriceWithCurrency, z.ZodTypeDef, unknown> =
-    z.object({
-        amount: z.number().int(),
-        currency: z.string(),
-    });
+export const PriceWithCurrency$inboundSchema: z.ZodType<
+  PriceWithCurrency,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  amount: z.number().int(),
+  currency: z.string(),
+});
 
 /** @internal */
 export type PriceWithCurrency$Outbound = {
-    amount: number;
-    currency: string;
+  amount: number;
+  currency: string;
 };
 
 /** @internal */
 export const PriceWithCurrency$outboundSchema: z.ZodType<
-    PriceWithCurrency$Outbound,
-    z.ZodTypeDef,
-    PriceWithCurrency
+  PriceWithCurrency$Outbound,
+  z.ZodTypeDef,
+  PriceWithCurrency
 > = z.object({
-    amount: z.number().int(),
-    currency: z.string(),
+  amount: z.number().int(),
+  currency: z.string(),
 });
 
 /**
@@ -37,10 +40,10 @@ export const PriceWithCurrency$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace PriceWithCurrency$ {
-    /** @deprecated use `PriceWithCurrency$inboundSchema` instead. */
-    export const inboundSchema = PriceWithCurrency$inboundSchema;
-    /** @deprecated use `PriceWithCurrency$outboundSchema` instead. */
-    export const outboundSchema = PriceWithCurrency$outboundSchema;
-    /** @deprecated use `PriceWithCurrency$Outbound` instead. */
-    export type Outbound = PriceWithCurrency$Outbound;
+  /** @deprecated use `PriceWithCurrency$inboundSchema` instead. */
+  export const inboundSchema = PriceWithCurrency$inboundSchema;
+  /** @deprecated use `PriceWithCurrency$outboundSchema` instead. */
+  export const outboundSchema = PriceWithCurrency$outboundSchema;
+  /** @deprecated use `PriceWithCurrency$Outbound` instead. */
+  export type Outbound = PriceWithCurrency$Outbound;
 }

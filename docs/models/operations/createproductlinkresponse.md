@@ -6,11 +6,11 @@
 import { CreateProductLinkResponse } from "@ioniccommerce/ionic-sdk/models/operations";
 
 let value: CreateProductLinkResponse = {
-    contentType: "<value>",
-    statusCode: 548814,
-    rawResponse: new Response('{"message": "hello world"}', {
-        headers: { "Content-Type": "application/json" },
-    }),
+  contentType: "<value>",
+  statusCode: 548814,
+  rawResponse: new Response("{\"message\": \"hello world\"}", {
+    headers: { "Content-Type": "application/json" },
+  }),
 };
 ```
 

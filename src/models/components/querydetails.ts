@@ -5,26 +5,30 @@
 import * as z from "zod";
 
 export type QueryDetails = {
-    q: string;
+  q: string;
 };
 
 /** @internal */
-export const QueryDetails$inboundSchema: z.ZodType<QueryDetails, z.ZodTypeDef, unknown> = z.object({
-    q: z.string(),
+export const QueryDetails$inboundSchema: z.ZodType<
+  QueryDetails,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  q: z.string(),
 });
 
 /** @internal */
 export type QueryDetails$Outbound = {
-    q: string;
+  q: string;
 };
 
 /** @internal */
 export const QueryDetails$outboundSchema: z.ZodType<
-    QueryDetails$Outbound,
-    z.ZodTypeDef,
-    QueryDetails
+  QueryDetails$Outbound,
+  z.ZodTypeDef,
+  QueryDetails
 > = z.object({
-    q: z.string(),
+  q: z.string(),
 });
 
 /**
@@ -32,10 +36,10 @@ export const QueryDetails$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace QueryDetails$ {
-    /** @deprecated use `QueryDetails$inboundSchema` instead. */
-    export const inboundSchema = QueryDetails$inboundSchema;
-    /** @deprecated use `QueryDetails$outboundSchema` instead. */
-    export const outboundSchema = QueryDetails$outboundSchema;
-    /** @deprecated use `QueryDetails$Outbound` instead. */
-    export type Outbound = QueryDetails$Outbound;
+  /** @deprecated use `QueryDetails$inboundSchema` instead. */
+  export const inboundSchema = QueryDetails$inboundSchema;
+  /** @deprecated use `QueryDetails$outboundSchema` instead. */
+  export const outboundSchema = QueryDetails$outboundSchema;
+  /** @deprecated use `QueryDetails$Outbound` instead. */
+  export type Outbound = QueryDetails$Outbound;
 }

@@ -6,9 +6,9 @@
 import { QueryAPIRequest } from "@ioniccommerce/ionic-sdk/models/components";
 
 let value: QueryAPIRequest = {
-    query: {
-        query: "<value>",
-    },
+  query: {
+    query: "<value>",
+  },
 };
 ```
 

@@ -6,19 +6,19 @@
 import { Extensions } from "@ioniccommerce/ionic-sdk/models/components";
 
 let value: Extensions = {
-    merchants: {
-        data: [
-            {
-                images: {},
-                links: {},
-                price: {
-                    amount: 135218,
-                    currency: "Armenian Dram",
-                },
-                title: "<value>",
-            },
-        ],
-    },
+  merchants: {
+    data: [
+      {
+        images: {},
+        links: {},
+        price: {
+          amount: 135218,
+          currency: "Armenian Dram",
+        },
+        title: "<value>",
+      },
+    ],
+  },
 };
 ```
 

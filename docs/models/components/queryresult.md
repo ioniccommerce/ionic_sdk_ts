@@ -6,10 +6,10 @@
 import { QueryResult } from "@ioniccommerce/ionic-sdk/models/components";
 
 let value: QueryResult = {
-    products: [],
-    query: {
-        query: "<value>",
-    },
+  products: [],
+  query: {
+    query: "<value>",
+  },
 };
 ```
 

@@ -79,30 +79,27 @@ import { Ionic } from "@ioniccommerce/ionic-sdk";
 const ionic = new Ionic();
 
 async function run() {
-    const result = await ionic.createProductLink(
-        {
-            clientDetails: {
-                ip: "185.113.33.24",
-            },
-            product: {
-                identifiers: {},
-                link: "http://negative-wording.biz",
-            },
-            query: {
-                q: "<value>",
-            },
-            userDetails: {
-                email: "Mitchell_DAmore49@hotmail.com",
-                id: "<id>",
-            },
-        },
-        {
-            apiKeyHeader: "<YOUR_API_KEY_HERE>",
-        }
-    );
+  const result = await ionic.createProductLink({
+    clientDetails: {
+      ip: "185.113.33.24",
+    },
+    product: {
+      identifiers: {},
+      link: "http://negative-wording.biz",
+    },
+    query: {
+      q: "<value>",
+    },
+    userDetails: {
+      email: "Mitchell_DAmore49@hotmail.com",
+      id: "<id>",
+    },
+  }, {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -134,56 +131,56 @@ Validation errors can also occur when either method arguments or data returned f
 
 ```typescript
 import { Ionic } from "@ioniccommerce/ionic-sdk";
-import { HTTPValidationError, SDKValidationError } from "@ioniccommerce/ionic-sdk/models/errors";
+import {
+  HTTPValidationError,
+  SDKValidationError,
+} from "@ioniccommerce/ionic-sdk/models/errors";
 
 const ionic = new Ionic();
 
 async function run() {
-    let result;
-    try {
-        result = await ionic.createProductLink(
-            {
-                clientDetails: {
-                    ip: "185.113.33.24",
-                },
-                product: {
-                    identifiers: {},
-                    link: "http://negative-wording.biz",
-                },
-                query: {
-                    q: "<value>",
-                },
-                userDetails: {
-                    email: "Mitchell_DAmore49@hotmail.com",
-                    id: "<id>",
-                },
-            },
-            {
-                apiKeyHeader: "<YOUR_API_KEY_HERE>",
-            }
-        );
+  let result;
+  try {
+    result = await ionic.createProductLink({
+      clientDetails: {
+        ip: "185.113.33.24",
+      },
+      product: {
+        identifiers: {},
+        link: "http://negative-wording.biz",
+      },
+      query: {
+        q: "<value>",
+      },
+      userDetails: {
+        email: "Mitchell_DAmore49@hotmail.com",
+        id: "<id>",
+      },
+    }, {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    });
 
-        // Handle the result
-        console.log(result);
-    } catch (err) {
-        switch (true) {
-            case err instanceof SDKValidationError: {
-                // Validation errors can be pretty-printed
-                console.error(err.pretty());
-                // Raw value may also be inspected
-                console.error(err.rawValue);
-                return;
-            }
-            case err instanceof HTTPValidationError: {
-                // Handle err.data$: HTTPValidationErrorData
-                console.error(err);
-                return;
-            }
-            default: {
-                throw err;
-            }
-        }
+    // Handle the result
+    console.log(result);
+  } catch (err) {
+    switch (true) {
+      case (err instanceof SDKValidationError): {
+        // Validation errors can be pretty-printed
+        console.error(err.pretty());
+        // Raw value may also be inspected
+        console.error(err.rawValue);
+        return;
+      }
+      case (err instanceof HTTPValidationError): {
+        // Handle err.data$: HTTPValidationErrorData
+        console.error(err);
+        return;
+      }
+      default: {
+        throw err;
+      }
     }
+  }
 }
 
 run();
@@ -206,34 +203,31 @@ You can override the default server globally by passing a server index to the `s
 import { Ionic } from "@ioniccommerce/ionic-sdk";
 
 const ionic = new Ionic({
-    serverIdx: 0,
+  serverIdx: 0,
 });
 
 async function run() {
-    const result = await ionic.createProductLink(
-        {
-            clientDetails: {
-                ip: "185.113.33.24",
-            },
-            product: {
-                identifiers: {},
-                link: "http://negative-wording.biz",
-            },
-            query: {
-                q: "<value>",
-            },
-            userDetails: {
-                email: "Mitchell_DAmore49@hotmail.com",
-                id: "<id>",
-            },
-        },
-        {
-            apiKeyHeader: "<YOUR_API_KEY_HERE>",
-        }
-    );
+  const result = await ionic.createProductLink({
+    clientDetails: {
+      ip: "185.113.33.24",
+    },
+    product: {
+      identifiers: {},
+      link: "http://negative-wording.biz",
+    },
+    query: {
+      q: "<value>",
+    },
+    userDetails: {
+      email: "Mitchell_DAmore49@hotmail.com",
+      id: "<id>",
+    },
+  }, {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -249,34 +243,31 @@ The default server can also be overridden globally by passing a URL to the `serv
 import { Ionic } from "@ioniccommerce/ionic-sdk";
 
 const ionic = new Ionic({
-    serverURL: "https://api.ioniccommerce.com",
+  serverURL: "https://api.ioniccommerce.com",
 });
 
 async function run() {
-    const result = await ionic.createProductLink(
-        {
-            clientDetails: {
-                ip: "185.113.33.24",
-            },
-            product: {
-                identifiers: {},
-                link: "http://negative-wording.biz",
-            },
-            query: {
-                q: "<value>",
-            },
-            userDetails: {
-                email: "Mitchell_DAmore49@hotmail.com",
-                id: "<id>",
-            },
-        },
-        {
-            apiKeyHeader: "<YOUR_API_KEY_HERE>",
-        }
-    );
+  const result = await ionic.createProductLink({
+    clientDetails: {
+      ip: "185.113.33.24",
+    },
+    product: {
+      identifiers: {},
+      link: "http://negative-wording.biz",
+    },
+    query: {
+      q: "<value>",
+    },
+    userDetails: {
+      email: "Mitchell_DAmore49@hotmail.com",
+      id: "<id>",
+    },
+  }, {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -356,30 +347,27 @@ import { Ionic } from "@ioniccommerce/ionic-sdk";
 const ionic = new Ionic();
 
 async function run() {
-    const result = await ionic.createProductLink(
-        {
-            clientDetails: {
-                ip: "185.113.33.24",
-            },
-            product: {
-                identifiers: {},
-                link: "http://negative-wording.biz",
-            },
-            query: {
-                q: "<value>",
-            },
-            userDetails: {
-                email: "Mitchell_DAmore49@hotmail.com",
-                id: "<id>",
-            },
-        },
-        {
-            apiKeyHeader: "<YOUR_API_KEY_HERE>",
-        }
-    );
+  const result = await ionic.createProductLink({
+    clientDetails: {
+      ip: "185.113.33.24",
+    },
+    product: {
+      identifiers: {},
+      link: "http://negative-wording.biz",
+    },
+    query: {
+      q: "<value>",
+    },
+    userDetails: {
+      email: "Mitchell_DAmore49@hotmail.com",
+      id: "<id>",
+    },
+  }, {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -399,42 +387,38 @@ import { Ionic } from "@ioniccommerce/ionic-sdk";
 const ionic = new Ionic();
 
 async function run() {
-    const result = await ionic.createProductLink(
-        {
-            clientDetails: {
-                ip: "185.113.33.24",
-            },
-            product: {
-                identifiers: {},
-                link: "http://negative-wording.biz",
-            },
-            query: {
-                q: "<value>",
-            },
-            userDetails: {
-                email: "Mitchell_DAmore49@hotmail.com",
-                id: "<id>",
-            },
-        },
-        {
-            apiKeyHeader: "<YOUR_API_KEY_HERE>",
-        },
-        {
-            retries: {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 1,
-                    maxInterval: 50,
-                    exponent: 1.1,
-                    maxElapsedTime: 100,
-                },
-                retryConnectionErrors: false,
-            },
-        }
-    );
+  const result = await ionic.createProductLink({
+    clientDetails: {
+      ip: "185.113.33.24",
+    },
+    product: {
+      identifiers: {},
+      link: "http://negative-wording.biz",
+    },
+    query: {
+      q: "<value>",
+    },
+    userDetails: {
+      email: "Mitchell_DAmore49@hotmail.com",
+      id: "<id>",
+    },
+  }, {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  }, {
+    retries: {
+      strategy: "backoff",
+      backoff: {
+        initialInterval: 1,
+        maxInterval: 50,
+        exponent: 1.1,
+        maxElapsedTime: 100,
+      },
+      retryConnectionErrors: false,
+    },
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -446,43 +430,40 @@ If you'd like to override the default retry strategy for all operations that sup
 import { Ionic } from "@ioniccommerce/ionic-sdk";
 
 const ionic = new Ionic({
-    retryConfig: {
-        strategy: "backoff",
-        backoff: {
-            initialInterval: 1,
-            maxInterval: 50,
-            exponent: 1.1,
-            maxElapsedTime: 100,
-        },
-        retryConnectionErrors: false,
+  retryConfig: {
+    strategy: "backoff",
+    backoff: {
+      initialInterval: 1,
+      maxInterval: 50,
+      exponent: 1.1,
+      maxElapsedTime: 100,
     },
+    retryConnectionErrors: false,
+  },
 });
 
 async function run() {
-    const result = await ionic.createProductLink(
-        {
-            clientDetails: {
-                ip: "185.113.33.24",
-            },
-            product: {
-                identifiers: {},
-                link: "http://negative-wording.biz",
-            },
-            query: {
-                q: "<value>",
-            },
-            userDetails: {
-                email: "Mitchell_DAmore49@hotmail.com",
-                id: "<id>",
-            },
-        },
-        {
-            apiKeyHeader: "<YOUR_API_KEY_HERE>",
-        }
-    );
+  const result = await ionic.createProductLink({
+    clientDetails: {
+      ip: "185.113.33.24",
+    },
+    product: {
+      identifiers: {},
+      link: "http://negative-wording.biz",
+    },
+    query: {
+      q: "<value>",
+    },
+    userDetails: {
+      email: "Mitchell_DAmore49@hotmail.com",
+      id: "<id>",
+    },
+  }, {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();

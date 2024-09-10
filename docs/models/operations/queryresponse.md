@@ -6,11 +6,11 @@
 import { QueryResponse } from "@ioniccommerce/ionic-sdk/models/operations";
 
 let value: QueryResponse = {
-    contentType: "<value>",
-    statusCode: 592845,
-    rawResponse: new Response('{"message": "hello world"}', {
-        headers: { "Content-Type": "application/json" },
-    }),
+  contentType: "<value>",
+  statusCode: 592845,
+  rawResponse: new Response("{\"message\": \"hello world\"}", {
+    headers: { "Content-Type": "application/json" },
+  }),
 };
 ```
 

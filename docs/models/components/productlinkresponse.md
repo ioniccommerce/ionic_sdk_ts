@@ -6,13 +6,13 @@
 import { ProductLinkResponse } from "@ioniccommerce/ionic-sdk/models/components";
 
 let value: ProductLinkResponse = {
-    id: "<id>",
-    product: {
-        links: {
-            original: "https://terrible-nutrient.org",
-            tagged: "https://that-hellcat.name",
-        },
+  id: "<id>",
+  product: {
+    links: {
+      original: "https://terrible-nutrient.org",
+      tagged: "https://that-hellcat.name",
     },
+  },
 };
 ```
 

@@ -5,31 +5,34 @@
 import * as z from "zod";
 
 export type ExtensionLinks = {
-    original?: string | undefined;
-    tagged?: string | undefined;
+  original?: string | undefined;
+  tagged?: string | undefined;
 };
 
 /** @internal */
-export const ExtensionLinks$inboundSchema: z.ZodType<ExtensionLinks, z.ZodTypeDef, unknown> =
-    z.object({
-        original: z.string().optional(),
-        tagged: z.string().optional(),
-    });
+export const ExtensionLinks$inboundSchema: z.ZodType<
+  ExtensionLinks,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  original: z.string().optional(),
+  tagged: z.string().optional(),
+});
 
 /** @internal */
 export type ExtensionLinks$Outbound = {
-    original?: string | undefined;
-    tagged?: string | undefined;
+  original?: string | undefined;
+  tagged?: string | undefined;
 };
 
 /** @internal */
 export const ExtensionLinks$outboundSchema: z.ZodType<
-    ExtensionLinks$Outbound,
-    z.ZodTypeDef,
-    ExtensionLinks
+  ExtensionLinks$Outbound,
+  z.ZodTypeDef,
+  ExtensionLinks
 > = z.object({
-    original: z.string().optional(),
-    tagged: z.string().optional(),
+  original: z.string().optional(),
+  tagged: z.string().optional(),
 });
 
 /**
@@ -37,10 +40,10 @@ export const ExtensionLinks$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace ExtensionLinks$ {
-    /** @deprecated use `ExtensionLinks$inboundSchema` instead. */
-    export const inboundSchema = ExtensionLinks$inboundSchema;
-    /** @deprecated use `ExtensionLinks$outboundSchema` instead. */
-    export const outboundSchema = ExtensionLinks$outboundSchema;
-    /** @deprecated use `ExtensionLinks$Outbound` instead. */
-    export type Outbound = ExtensionLinks$Outbound;
+  /** @deprecated use `ExtensionLinks$inboundSchema` instead. */
+  export const inboundSchema = ExtensionLinks$inboundSchema;
+  /** @deprecated use `ExtensionLinks$outboundSchema` instead. */
+  export const outboundSchema = ExtensionLinks$outboundSchema;
+  /** @deprecated use `ExtensionLinks$Outbound` instead. */
+  export type Outbound = ExtensionLinks$Outbound;
 }

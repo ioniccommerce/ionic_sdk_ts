@@ -10,31 +10,41 @@ import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class Ionic extends ClientSDK {
-    /**
-     * Ionic Commerce | Create Product Link
-     *
-     * @remarks
-     * Creates and returns a tagged affiliate link
-     */
-    async createProductLink(
-        request: components.ProductLinkRequest,
-        security: operations.CreateProductLinkSecurity,
-        options?: RequestOptions
-    ): Promise<operations.CreateProductLinkResponse> {
-        return unwrapAsync(createProductLink(this, request, security, options));
-    }
+  /**
+   * Ionic Commerce | Create Product Link
+   *
+   * @remarks
+   * Creates and returns a tagged affiliate link
+   */
+  async createProductLink(
+    request: components.ProductLinkRequest,
+    security: operations.CreateProductLinkSecurity,
+    options?: RequestOptions,
+  ): Promise<operations.CreateProductLinkResponse> {
+    return unwrapAsync(createProductLink(
+      this,
+      request,
+      security,
+      options,
+    ));
+  }
 
-    /**
-     * Product Search
-     *
-     * @remarks
-     * API for searching for products & recommendations.
-     */
-    async query(
-        request: components.QueryAPIRequest,
-        security: operations.QuerySecurity,
-        options?: RequestOptions
-    ): Promise<operations.QueryResponse> {
-        return unwrapAsync(query(this, request, security, options));
-    }
+  /**
+   * Product Search
+   *
+   * @remarks
+   * API for searching for products & recommendations.
+   */
+  async query(
+    request: components.QueryAPIRequest,
+    security: operations.QuerySecurity,
+    options?: RequestOptions,
+  ): Promise<operations.QueryResponse> {
+    return unwrapAsync(query(
+      this,
+      request,
+      security,
+      options,
+    ));
+  }
 }

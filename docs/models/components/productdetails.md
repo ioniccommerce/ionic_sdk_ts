@@ -6,8 +6,8 @@
 import { ProductDetails } from "@ioniccommerce/ionic-sdk/models/components";
 
 let value: ProductDetails = {
-    identifiers: {},
-    link: "https://posh-muffin.com",
+  identifiers: {},
+  link: "https://posh-muffin.com",
 };
 ```
 
