@@ -110,10 +110,15 @@ run();
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+<details open>
+<summary>Available methods</summary>
+
 ### [Ionic SDK](docs/sdks/ionic/README.md)
 
 * [createProductLink](docs/sdks/ionic/README.md#createproductlink) - Ionic Commerce | Create Product Link
 * [query](docs/sdks/ionic/README.md#query) - Product Search
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Error Handling [errors] -->
