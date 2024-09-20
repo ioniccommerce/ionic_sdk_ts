@@ -6,7 +6,22 @@
 import { QueryResult } from "@ioniccommerce/ionic-sdk/models/components";
 
 let value: QueryResult = {
-  products: [],
+  products: [
+    {
+      links: [
+        {
+          text: "<value>",
+          type: "<value>",
+          url: "http://immense-investor.biz",
+        },
+      ],
+      merchantName: "<value>",
+      merchantProductId: "<value>",
+      name: "<value>",
+      price: "187.00",
+      status: "<value>",
+    },
+  ],
   query: {
     query: "<value>",
   },
