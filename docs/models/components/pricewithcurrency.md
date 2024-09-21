@@ -6,8 +6,8 @@
 import { PriceWithCurrency } from "@ioniccommerce/ionic-sdk/models/components";
 
 let value: PriceWithCurrency = {
-  amount: 681820,
-  currency: "Cayman Islands Dollar",
+  amount: 813798,
+  currency: "Iranian Rial",
 };
 ```
 

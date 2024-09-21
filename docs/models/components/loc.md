@@ -5,7 +5,7 @@
 ```typescript
 import { Loc } from "@ioniccommerce/ionic-sdk/models/components";
 
-let value: Loc = 836079;
+let value: Loc = "<value>";
 ```
 
 ## Supported Types

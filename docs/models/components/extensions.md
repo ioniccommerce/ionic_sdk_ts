@@ -12,8 +12,8 @@ let value: Extensions = {
         images: {},
         links: {},
         price: {
-          amount: 612096,
-          currency: "Dominican Peso",
+          amount: 223081,
+          currency: "CFA Franc BCEAO",
         },
         title: "<value>",
       },

@@ -7,7 +7,7 @@ import { ProductDetails } from "@ioniccommerce/ionic-sdk/models/components";
 
 let value: ProductDetails = {
   identifiers: {},
-  link: "https://posh-muffin.com",
+  link: "https://carefree-cross-contamination.com",
 };
 ```
 

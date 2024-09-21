@@ -10,13 +10,13 @@ let value: Product = {
     {
       text: "<value>",
       type: "<value>",
-      url: "https://several-increase.biz",
+      url: "https://ajar-solvency.com",
     },
   ],
   merchantName: "<value>",
   merchantProductId: "<value>",
   name: "<value>",
-  price: "569.00",
+  price: "678.15",
   status: "<value>",
 };
 ```

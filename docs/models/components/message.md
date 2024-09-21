@@ -7,7 +7,7 @@ import { Message } from "@ioniccommerce/ionic-sdk/models/components";
 
 let value: Message = {
   content: "<value>",
-  role: "assistant",
+  role: "system",
   type: "filter",
 };
 ```

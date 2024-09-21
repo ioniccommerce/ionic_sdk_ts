@@ -3,11 +3,11 @@
  */
 
 import { IonicCore } from "../core.js";
-import { encodeJSON as encodeJSON$ } from "../lib/encodings.js";
-import * as m$ from "../lib/matchers.js";
-import * as schemas$ from "../lib/schemas.js";
+import { encodeJSON } from "../lib/encodings.js";
+import * as M from "../lib/matchers.js";
+import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
-import { resolveSecurity, SecurityInput } from "../lib/security.js";
+import { resolveSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import * as components from "../models/components/index.js";
 import {
@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Creates and returns a tagged affiliate link
  */
 export async function createProductLink(
-  client$: IonicCore,
+  client: IonicCore,
   request: components.ProductLinkRequest,
   security: operations.CreateProductLinkSecurity,
   options?: RequestOptions,
@@ -47,27 +47,27 @@ export async function createProductLink(
     | ConnectionError
   >
 > {
-  const input$ = request;
+  const input = request;
 
-  const parsed$ = schemas$.safeParse(
-    input$,
-    (value$) => components.ProductLinkRequest$outboundSchema.parse(value$),
+  const parsed = safeParse(
+    input,
+    (value) => components.ProductLinkRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
-  if (!parsed$.ok) {
-    return parsed$;
+  if (!parsed.ok) {
+    return parsed;
   }
-  const payload$ = parsed$.value;
-  const body$ = encodeJSON$("body", payload$, { explode: true });
+  const payload = parsed.value;
+  const body = encodeJSON("body", payload, { explode: true });
 
-  const path$ = pathToFunc("/products/link")();
+  const path = pathToFunc("/products/link")();
 
-  const headers$ = new Headers({
+  const headers = new Headers({
     "Content-Type": "application/json",
     Accept: "application/json",
   });
 
-  const security$: SecurityInput[][] = [
+  const requestSecurity = resolveSecurity(
     [
       {
         fieldName: "x-api-key",
@@ -82,32 +82,31 @@ export async function createProductLink(
         value: security?.apiKeyQuery,
       },
     ],
-  ];
-  const securitySettings$ = resolveSecurity(...security$);
+  );
   const context = {
     operationID: "create_product_link",
     oAuth2Scopes: [],
     securitySource: security,
   };
 
-  const requestRes = client$.createRequest$(context, {
-    security: securitySettings$,
+  const requestRes = client._createRequest(context, {
+    security: requestSecurity,
     method: "POST",
-    path: path$,
-    headers: headers$,
-    body: body$,
-    timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
+    path: path,
+    headers: headers,
+    body: body,
+    timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
     return requestRes;
   }
-  const request$ = requestRes.value;
+  const req = requestRes.value;
 
-  const doResult = await client$.do$(request$, {
+  const doResult = await client._do(req, {
     context,
     errorCodes: ["422", "4XX", "5XX"],
     retryConfig: options?.retries
-      || client$.options$.retryConfig,
+      || client._options.retryConfig,
     retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
   });
   if (!doResult.ok) {
@@ -115,7 +114,7 @@ export async function createProductLink(
   }
   const response = doResult.value;
 
-  const responseFields$ = {
+  const responseFields = {
     ContentType: response.headers.get("content-type")
       ?? "application/octet-stream",
     StatusCode: response.status,
@@ -123,7 +122,7 @@ export async function createProductLink(
     Headers: {},
   };
 
-  const [result$] = await m$.match<
+  const [result] = await M.match<
     operations.CreateProductLinkResponse,
     | errors.HTTPValidationError
     | SDKError
@@ -134,15 +133,15 @@ export async function createProductLink(
     | RequestTimeoutError
     | ConnectionError
   >(
-    m$.json(200, operations.CreateProductLinkResponse$inboundSchema, {
+    M.json(200, operations.CreateProductLinkResponse$inboundSchema, {
       key: "ProductLinkResponse",
     }),
-    m$.jsonErr(422, errors.HTTPValidationError$inboundSchema),
-    m$.fail(["4XX", "5XX"]),
-  )(response, { extraFields: responseFields$ });
-  if (!result$.ok) {
-    return result$;
+    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.fail(["4XX", "5XX"]),
+  )(response, { extraFields: responseFields });
+  if (!result.ok) {
+    return result;
   }
 
-  return result$;
+  return result;
 }
