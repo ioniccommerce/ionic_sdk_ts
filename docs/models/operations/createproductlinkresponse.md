@@ -7,7 +7,7 @@ import { CreateProductLinkResponse } from "@ioniccommerce/ionic-sdk/models/opera
 
 let value: CreateProductLinkResponse = {
   contentType: "<value>",
-  statusCode: 548814,
+  statusCode: 306,
   rawResponse: new Response("{\"message\": \"hello world\"}", {
     headers: { "Content-Type": "application/json" },
   }),

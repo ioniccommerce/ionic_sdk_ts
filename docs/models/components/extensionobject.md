@@ -9,8 +9,8 @@ let value: ExtensionObject = {
   images: {},
   links: {},
   price: {
-    amount: 699479,
-    currency: "Lari",
+    amount: 396506,
+    currency: "Hryvnia",
   },
   title: "<value>",
 };

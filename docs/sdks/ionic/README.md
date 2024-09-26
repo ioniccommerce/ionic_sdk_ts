@@ -39,9 +39,9 @@ async function run() {
   }, {
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -86,7 +86,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -133,9 +133,9 @@ async function run() {
   }, {
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -169,7 +169,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();

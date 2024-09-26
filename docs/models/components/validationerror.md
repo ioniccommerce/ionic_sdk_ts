@@ -7,7 +7,7 @@ import { ValidationError } from "@ioniccommerce/ionic-sdk/models/components";
 
 let value: ValidationError = {
   loc: [
-    521848,
+    "<value>",
   ],
   msg: "<value>",
   type: "<value>",

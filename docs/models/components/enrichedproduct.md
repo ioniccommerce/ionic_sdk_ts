@@ -7,8 +7,8 @@ import { EnrichedProduct } from "@ioniccommerce/ionic-sdk/models/components";
 
 let value: EnrichedProduct = {
   links: {
-    original: "https://motionless-metabolite.org",
-    tagged: "https://bright-agreement.net/",
+    original: "https://valuable-behest.com",
+    tagged: "https://talkative-sauerkraut.org/",
   },
 };
 ```

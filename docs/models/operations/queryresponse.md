@@ -7,7 +7,7 @@ import { QueryResponse } from "@ioniccommerce/ionic-sdk/models/operations";
 
 let value: QueryResponse = {
   contentType: "<value>",
-  statusCode: 715190,
+  statusCode: 415,
   rawResponse: new Response("{\"message\": \"hello world\"}", {
     headers: { "Content-Type": "application/json" },
   }),

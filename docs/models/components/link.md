@@ -8,7 +8,7 @@ import { Link } from "@ioniccommerce/ionic-sdk/models/components";
 let value: Link = {
   text: "<value>",
   type: "<value>",
-  url: "https://orange-mozzarella.name/",
+  url: "https://elliptical-valentine.info",
 };
 ```
 

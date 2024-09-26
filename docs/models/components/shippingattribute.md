@@ -7,7 +7,7 @@ An enumeration.
 ```typescript
 import { ShippingAttribute } from "@ioniccommerce/ionic-sdk/models/components";
 
-let value: ShippingAttribute = "in_store_pickup";
+let value: ShippingAttribute = "two_day_shipping";
 ```
 
 ## Values
