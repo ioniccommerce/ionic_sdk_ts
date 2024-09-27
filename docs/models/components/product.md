@@ -10,13 +10,13 @@ let value: Product = {
     {
       text: "<value>",
       type: "<value>",
-      url: "https://remarkable-dream.net/",
+      url: "https://wobbly-instance.org/",
     },
   ],
   merchantName: "<value>",
-  merchantProductId: "<value>",
+  merchantProductId: "<id>",
   name: "<value>",
-  price: "962.25",
+  price: "605.29",
   status: "<value>",
 };
 ```

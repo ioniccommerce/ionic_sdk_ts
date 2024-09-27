@@ -1,24 +1,17 @@
 # Loc
 
-## Example Usage
-
-```typescript
-import { Loc } from "@ioniccommerce/ionic-sdk/models/components";
-
-let value: Loc = 414662;
-```
 
 ## Supported Types
 
 ### `string`
 
 ```typescript
-const value: string = /* values here */
+const value: string = "<value>";
 ```
 
 ### `number`
 
 ```typescript
-const value: number = /* values here */
+const value: number = 521848;
 ```
 

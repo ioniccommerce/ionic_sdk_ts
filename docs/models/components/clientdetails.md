@@ -6,7 +6,7 @@
 import { ClientDetails } from "@ioniccommerce/ionic-sdk/models/components";
 
 let value: ClientDetails = {
-  ip: "147.237.81.170",
+  ip: "119.62.40.28",
 };
 ```
 
