@@ -31,8 +31,8 @@ import { Result } from "../types/fp.js";
  */
 export async function createProductLink(
   client: IonicCore,
-  request: components.ProductLinkRequest,
   security: operations.CreateProductLinkSecurity,
+  request: components.ProductLinkRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
@@ -47,10 +47,8 @@ export async function createProductLink(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => components.ProductLinkRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

@@ -17,14 +17,14 @@ export class Ionic extends ClientSDK {
    * Creates and returns a tagged affiliate link
    */
   async createProductLink(
-    request: components.ProductLinkRequest,
     security: operations.CreateProductLinkSecurity,
+    request: components.ProductLinkRequest,
     options?: RequestOptions,
   ): Promise<operations.CreateProductLinkResponse> {
     return unwrapAsync(createProductLink(
       this,
-      request,
       security,
+      request,
       options,
     ));
   }
@@ -36,14 +36,14 @@ export class Ionic extends ClientSDK {
    * API for searching for products & recommendations.
    */
   async query(
-    request: components.QueryAPIRequest,
     security: operations.QuerySecurity,
+    request: components.QueryAPIRequest,
     options?: RequestOptions,
   ): Promise<operations.QueryResponse> {
     return unwrapAsync(query(
       this,
-      request,
       security,
+      request,
       options,
     ));
   }

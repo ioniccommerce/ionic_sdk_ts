@@ -31,8 +31,8 @@ import { Result } from "../types/fp.js";
  */
 export async function query(
   client: IonicCore,
-  request: components.QueryAPIRequest,
   security: operations.QuerySecurity,
+  request: components.QueryAPIRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
@@ -47,10 +47,8 @@ export async function query(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => components.QueryAPIRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

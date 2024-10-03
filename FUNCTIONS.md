@@ -29,6 +29,8 @@ const ionic = new IonicCore();
 
 async function run() {
   const res = await createProductLink(ionic, {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  }, {
     clientDetails: {
       ip: "185.113.33.24",
     },
@@ -43,8 +45,6 @@ async function run() {
       email: "Mitchell_DAmore49@hotmail.com",
       id: "<id>",
     },
-  }, {
-    apiKeyHeader: "<YOUR_API_KEY_HERE>",
   });
 
   switch (true) {

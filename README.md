@@ -80,6 +80,8 @@ const ionic = new Ionic();
 
 async function run() {
   const result = await ionic.createProductLink({
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  }, {
     clientDetails: {
       ip: "185.113.33.24",
     },
@@ -94,8 +96,6 @@ async function run() {
       email: "Mitchell_DAmore49@hotmail.com",
       id: "<id>",
     },
-  }, {
-    apiKeyHeader: "<YOUR_API_KEY_HERE>",
   });
 
   // Handle the result
@@ -156,6 +156,8 @@ async function run() {
   let result;
   try {
     result = await ionic.createProductLink({
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    }, {
       clientDetails: {
         ip: "185.113.33.24",
       },
@@ -170,8 +172,6 @@ async function run() {
         email: "Mitchell_DAmore49@hotmail.com",
         id: "<id>",
       },
-    }, {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
     });
 
     // Handle the result
@@ -224,6 +224,8 @@ const ionic = new Ionic({
 
 async function run() {
   const result = await ionic.createProductLink({
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  }, {
     clientDetails: {
       ip: "185.113.33.24",
     },
@@ -238,8 +240,6 @@ async function run() {
       email: "Mitchell_DAmore49@hotmail.com",
       id: "<id>",
     },
-  }, {
-    apiKeyHeader: "<YOUR_API_KEY_HERE>",
   });
 
   // Handle the result
@@ -264,6 +264,8 @@ const ionic = new Ionic({
 
 async function run() {
   const result = await ionic.createProductLink({
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  }, {
     clientDetails: {
       ip: "185.113.33.24",
     },
@@ -278,8 +280,6 @@ async function run() {
       email: "Mitchell_DAmore49@hotmail.com",
       id: "<id>",
     },
-  }, {
-    apiKeyHeader: "<YOUR_API_KEY_HERE>",
   });
 
   // Handle the result
@@ -364,6 +364,8 @@ const ionic = new Ionic();
 
 async function run() {
   const result = await ionic.createProductLink({
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  }, {
     clientDetails: {
       ip: "185.113.33.24",
     },
@@ -378,8 +380,6 @@ async function run() {
       email: "Mitchell_DAmore49@hotmail.com",
       id: "<id>",
     },
-  }, {
-    apiKeyHeader: "<YOUR_API_KEY_HERE>",
   });
 
   // Handle the result
@@ -404,6 +404,8 @@ const ionic = new Ionic();
 
 async function run() {
   const result = await ionic.createProductLink({
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  }, {
     clientDetails: {
       ip: "185.113.33.24",
     },
@@ -418,8 +420,6 @@ async function run() {
       email: "Mitchell_DAmore49@hotmail.com",
       id: "<id>",
     },
-  }, {
-    apiKeyHeader: "<YOUR_API_KEY_HERE>",
   }, {
     retries: {
       strategy: "backoff",
@@ -460,6 +460,8 @@ const ionic = new Ionic({
 
 async function run() {
   const result = await ionic.createProductLink({
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  }, {
     clientDetails: {
       ip: "185.113.33.24",
     },
@@ -474,8 +476,6 @@ async function run() {
       email: "Mitchell_DAmore49@hotmail.com",
       id: "<id>",
     },
-  }, {
-    apiKeyHeader: "<YOUR_API_KEY_HERE>",
   });
 
   // Handle the result
