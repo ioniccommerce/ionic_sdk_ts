@@ -519,9 +519,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [createProductLink](docs/sdks/ionic/README.md#createproductlink)
-- [query](docs/sdks/ionic/README.md#query)
-
+- [`createProductLink`](docs/sdks/ionic/README.md#createproductlink) - Ionic Commerce | Create Product Link
+- [`query`](docs/sdks/ionic/README.md#query) - Product Search
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->

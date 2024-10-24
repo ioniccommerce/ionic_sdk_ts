@@ -1,6 +1,6 @@
 {
   "name": "@ioniccommerce/ionic-sdk",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "author": "Ionic",
   "main": "./index.js",
   "sideEffects": false,
