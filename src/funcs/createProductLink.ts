@@ -85,6 +85,9 @@ export async function createProductLink(
   const context = {
     operationID: "create_product_link",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: security,
     retryConfig: options?.retries
       || client._options.retryConfig
