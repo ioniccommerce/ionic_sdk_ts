@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   EnrichedProduct,
   EnrichedProduct$inboundSchema,
@@ -71,4 +74,22 @@ export namespace ProductLinkResponse$ {
   export const outboundSchema = ProductLinkResponse$outboundSchema;
   /** @deprecated use `ProductLinkResponse$Outbound` instead. */
   export type Outbound = ProductLinkResponse$Outbound;
+}
+
+export function productLinkResponseToJSON(
+  productLinkResponse: ProductLinkResponse,
+): string {
+  return JSON.stringify(
+    ProductLinkResponse$outboundSchema.parse(productLinkResponse),
+  );
+}
+
+export function productLinkResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductLinkResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductLinkResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductLinkResponse' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type PriceWithCurrency = {
   amount: number;
@@ -46,4 +49,22 @@ export namespace PriceWithCurrency$ {
   export const outboundSchema = PriceWithCurrency$outboundSchema;
   /** @deprecated use `PriceWithCurrency$Outbound` instead. */
   export type Outbound = PriceWithCurrency$Outbound;
+}
+
+export function priceWithCurrencyToJSON(
+  priceWithCurrency: PriceWithCurrency,
+): string {
+  return JSON.stringify(
+    PriceWithCurrency$outboundSchema.parse(priceWithCurrency),
+  );
+}
+
+export function priceWithCurrencyFromJSON(
+  jsonString: string,
+): SafeParseResult<PriceWithCurrency, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PriceWithCurrency$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PriceWithCurrency' from JSON`,
+  );
 }

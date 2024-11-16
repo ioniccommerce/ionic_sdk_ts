@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ExtensionObject,
   ExtensionObject$inboundSchema,
@@ -48,4 +51,18 @@ export namespace Extension$ {
   export const outboundSchema = Extension$outboundSchema;
   /** @deprecated use `Extension$Outbound` instead. */
   export type Outbound = Extension$Outbound;
+}
+
+export function extensionToJSON(extension: Extension): string {
+  return JSON.stringify(Extension$outboundSchema.parse(extension));
+}
+
+export function extensionFromJSON(
+  jsonString: string,
+): SafeParseResult<Extension, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Extension$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Extension' from JSON`,
+  );
 }

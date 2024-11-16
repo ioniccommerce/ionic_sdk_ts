@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ExtensionImages = {
   thumbnail?: string | undefined;
@@ -42,4 +45,20 @@ export namespace ExtensionImages$ {
   export const outboundSchema = ExtensionImages$outboundSchema;
   /** @deprecated use `ExtensionImages$Outbound` instead. */
   export type Outbound = ExtensionImages$Outbound;
+}
+
+export function extensionImagesToJSON(
+  extensionImages: ExtensionImages,
+): string {
+  return JSON.stringify(ExtensionImages$outboundSchema.parse(extensionImages));
+}
+
+export function extensionImagesFromJSON(
+  jsonString: string,
+): SafeParseResult<ExtensionImages, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ExtensionImages$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ExtensionImages' from JSON`,
+  );
 }

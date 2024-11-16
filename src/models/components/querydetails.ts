@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type QueryDetails = {
   q: string;
@@ -42,4 +45,18 @@ export namespace QueryDetails$ {
   export const outboundSchema = QueryDetails$outboundSchema;
   /** @deprecated use `QueryDetails$Outbound` instead. */
   export type Outbound = QueryDetails$Outbound;
+}
+
+export function queryDetailsToJSON(queryDetails: QueryDetails): string {
+  return JSON.stringify(QueryDetails$outboundSchema.parse(queryDetails));
+}
+
+export function queryDetailsFromJSON(
+  jsonString: string,
+): SafeParseResult<QueryDetails, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => QueryDetails$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryDetails' from JSON`,
+  );
 }

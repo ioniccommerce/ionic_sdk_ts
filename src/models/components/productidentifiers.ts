@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ProductIdentifiers = {
   asin?: string | undefined;
@@ -66,4 +69,22 @@ export namespace ProductIdentifiers$ {
   export const outboundSchema = ProductIdentifiers$outboundSchema;
   /** @deprecated use `ProductIdentifiers$Outbound` instead. */
   export type Outbound = ProductIdentifiers$Outbound;
+}
+
+export function productIdentifiersToJSON(
+  productIdentifiers: ProductIdentifiers,
+): string {
+  return JSON.stringify(
+    ProductIdentifiers$outboundSchema.parse(productIdentifiers),
+  );
+}
+
+export function productIdentifiersFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductIdentifiers, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductIdentifiers$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductIdentifiers' from JSON`,
+  );
 }

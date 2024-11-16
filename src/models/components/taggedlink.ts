@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type TaggedLink = {
   original: string;
@@ -46,4 +49,18 @@ export namespace TaggedLink$ {
   export const outboundSchema = TaggedLink$outboundSchema;
   /** @deprecated use `TaggedLink$Outbound` instead. */
   export type Outbound = TaggedLink$Outbound;
+}
+
+export function taggedLinkToJSON(taggedLink: TaggedLink): string {
+  return JSON.stringify(TaggedLink$outboundSchema.parse(taggedLink));
+}
+
+export function taggedLinkFromJSON(
+  jsonString: string,
+): SafeParseResult<TaggedLink, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TaggedLink$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TaggedLink' from JSON`,
+  );
 }

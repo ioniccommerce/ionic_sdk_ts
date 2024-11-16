@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Query = {
   maxPrice?: number | undefined;
@@ -64,4 +67,18 @@ export namespace Query$ {
   export const outboundSchema = Query$outboundSchema;
   /** @deprecated use `Query$Outbound` instead. */
   export type Outbound = Query$Outbound;
+}
+
+export function queryToJSON(query: Query): string {
+  return JSON.stringify(Query$outboundSchema.parse(query));
+}
+
+export function queryFromJSON(
+  jsonString: string,
+): SafeParseResult<Query, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Query$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Query' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Link = {
   text: string;
@@ -44,4 +47,18 @@ export namespace Link$ {
   export const outboundSchema = Link$outboundSchema;
   /** @deprecated use `Link$Outbound` instead. */
   export type Outbound = Link$Outbound;
+}
+
+export function linkToJSON(link: Link): string {
+  return JSON.stringify(Link$outboundSchema.parse(link));
+}
+
+export function linkFromJSON(
+  jsonString: string,
+): SafeParseResult<Link, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Link$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Link' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Message,
   Message$inboundSchema,
@@ -68,4 +71,20 @@ export namespace QueryAPIRequest$ {
   export const outboundSchema = QueryAPIRequest$outboundSchema;
   /** @deprecated use `QueryAPIRequest$Outbound` instead. */
   export type Outbound = QueryAPIRequest$Outbound;
+}
+
+export function queryAPIRequestToJSON(
+  queryAPIRequest: QueryAPIRequest,
+): string {
+  return JSON.stringify(QueryAPIRequest$outboundSchema.parse(queryAPIRequest));
+}
+
+export function queryAPIRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<QueryAPIRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => QueryAPIRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryAPIRequest' from JSON`,
+  );
 }

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ExtensionImages,
   ExtensionImages$inboundSchema,
@@ -90,4 +93,20 @@ export namespace ExtensionObject$ {
   export const outboundSchema = ExtensionObject$outboundSchema;
   /** @deprecated use `ExtensionObject$Outbound` instead. */
   export type Outbound = ExtensionObject$Outbound;
+}
+
+export function extensionObjectToJSON(
+  extensionObject: ExtensionObject,
+): string {
+  return JSON.stringify(ExtensionObject$outboundSchema.parse(extensionObject));
+}
+
+export function extensionObjectFromJSON(
+  jsonString: string,
+): SafeParseResult<ExtensionObject, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ExtensionObject$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ExtensionObject' from JSON`,
+  );
 }

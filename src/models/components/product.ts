@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Extensions,
   Extensions$inboundSchema,
@@ -127,4 +130,18 @@ export namespace Product$ {
   export const outboundSchema = Product$outboundSchema;
   /** @deprecated use `Product$Outbound` instead. */
   export type Outbound = Product$Outbound;
+}
+
+export function productToJSON(product: Product): string {
+  return JSON.stringify(Product$outboundSchema.parse(product));
+}
+
+export function productFromJSON(
+  jsonString: string,
+): SafeParseResult<Product, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Product$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Product' from JSON`,
+  );
 }

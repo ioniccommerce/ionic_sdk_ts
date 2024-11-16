@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type QuerySecurity = {
   apiKeyHeader?: string | undefined;
@@ -79,6 +82,20 @@ export namespace QuerySecurity$ {
   export type Outbound = QuerySecurity$Outbound;
 }
 
+export function querySecurityToJSON(querySecurity: QuerySecurity): string {
+  return JSON.stringify(QuerySecurity$outboundSchema.parse(querySecurity));
+}
+
+export function querySecurityFromJSON(
+  jsonString: string,
+): SafeParseResult<QuerySecurity, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => QuerySecurity$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QuerySecurity' from JSON`,
+  );
+}
+
 /** @internal */
 export const QueryResponse$inboundSchema: z.ZodType<
   QueryResponse,
@@ -138,4 +155,18 @@ export namespace QueryResponse$ {
   export const outboundSchema = QueryResponse$outboundSchema;
   /** @deprecated use `QueryResponse$Outbound` instead. */
   export type Outbound = QueryResponse$Outbound;
+}
+
+export function queryResponseToJSON(queryResponse: QueryResponse): string {
+  return JSON.stringify(QueryResponse$outboundSchema.parse(queryResponse));
+}
+
+export function queryResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<QueryResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => QueryResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryResponse' from JSON`,
+  );
 }

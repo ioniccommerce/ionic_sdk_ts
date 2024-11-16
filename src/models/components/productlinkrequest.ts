@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ClientDetails,
   ClientDetails$inboundSchema,
@@ -107,4 +110,22 @@ export namespace ProductLinkRequest$ {
   export const outboundSchema = ProductLinkRequest$outboundSchema;
   /** @deprecated use `ProductLinkRequest$Outbound` instead. */
   export type Outbound = ProductLinkRequest$Outbound;
+}
+
+export function productLinkRequestToJSON(
+  productLinkRequest: ProductLinkRequest,
+): string {
+  return JSON.stringify(
+    ProductLinkRequest$outboundSchema.parse(productLinkRequest),
+  );
+}
+
+export function productLinkRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductLinkRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductLinkRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductLinkRequest' from JSON`,
+  );
 }

@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CreateProductLinkSecurity = {
   apiKeyHeader?: string | undefined;
@@ -79,6 +82,24 @@ export namespace CreateProductLinkSecurity$ {
   export type Outbound = CreateProductLinkSecurity$Outbound;
 }
 
+export function createProductLinkSecurityToJSON(
+  createProductLinkSecurity: CreateProductLinkSecurity,
+): string {
+  return JSON.stringify(
+    CreateProductLinkSecurity$outboundSchema.parse(createProductLinkSecurity),
+  );
+}
+
+export function createProductLinkSecurityFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateProductLinkSecurity, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateProductLinkSecurity$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateProductLinkSecurity' from JSON`,
+  );
+}
+
 /** @internal */
 export const CreateProductLinkResponse$inboundSchema: z.ZodType<
   CreateProductLinkResponse,
@@ -138,4 +159,22 @@ export namespace CreateProductLinkResponse$ {
   export const outboundSchema = CreateProductLinkResponse$outboundSchema;
   /** @deprecated use `CreateProductLinkResponse$Outbound` instead. */
   export type Outbound = CreateProductLinkResponse$Outbound;
+}
+
+export function createProductLinkResponseToJSON(
+  createProductLinkResponse: CreateProductLinkResponse,
+): string {
+  return JSON.stringify(
+    CreateProductLinkResponse$outboundSchema.parse(createProductLinkResponse),
+  );
+}
+
+export function createProductLinkResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateProductLinkResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateProductLinkResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateProductLinkResponse' from JSON`,
+  );
 }
