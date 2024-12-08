@@ -1,6 +1,6 @@
 {
   "name": "@ioniccommerce/ionic-sdk",
-  "version": "0.8.7",
+  "version": "0.8.8",
   "author": "Ionic",
   "main": "./index.js",
   "sideEffects": false,
@@ -15,8 +15,6 @@
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "react": "^18 || ^19",
-    "react-dom": "^18 || ^19",
     "zod": ">= 3"
   },
   "devDependencies": {

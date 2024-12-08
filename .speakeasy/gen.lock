@@ -3,10 +3,10 @@ id: f33a88d3-7592-43ce-8436-66dc4989c954
 management:
   docChecksum: beef634374bba9f101a6f25fa9b153ba
   docVersion: "0.1"
-  speakeasyVersion: 1.453.1
-  generationVersion: 2.474.4
-  releaseVersion: 0.8.7
-  configChecksum: 93466cb830cda9642d82e08c97d66bf5
+  speakeasyVersion: 1.453.3
+  generationVersion: 2.474.6
+  releaseVersion: 0.8.8
+  configChecksum: 7fd1f02165fa2e9c7d423f6d3e82e964
   repoURL: https://github.com/ioniccommerce/ionic_sdk_ts.git
   repoSubDirectory: .
   installationURL: https://github.com/ioniccommerce/ionic_sdk_ts
