@@ -54,8 +54,8 @@ export function serverURLFromOptions(options: SDKOptions): URL | null {
 export const SDK_METADATA = {
   language: "typescript",
   openapiDocVersion: "0.1",
-  sdkVersion: "0.8.8",
-  genVersion: "2.474.6",
+  sdkVersion: "0.8.9",
+  genVersion: "2.477.4",
   userAgent:
-    "speakeasy-sdk/typescript 0.8.8 2.474.6 0.1 @ioniccommerce/ionic-sdk",
+    "speakeasy-sdk/typescript 0.8.9 2.477.4 0.1 @ioniccommerce/ionic-sdk",
 } as const;
