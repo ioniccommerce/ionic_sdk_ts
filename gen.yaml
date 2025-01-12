@@ -14,7 +14,7 @@ generation:
   baseServerURL: ""
   flattenGlobalSecurity: true
 typescript:
-  version: 0.8.13
+  version: 0.8.14
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -23,6 +23,7 @@ typescript:
   author: Ionic
   clientServerStatusCodesAsErrors: true
   defaultErrorName: SDKError
+  enableCustomCodeRegions: false
   enableReactQuery: false
   enumFormat: union
   flattenGlobalSecurity: true
