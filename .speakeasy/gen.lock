@@ -3,10 +3,10 @@ id: f33a88d3-7592-43ce-8436-66dc4989c954
 management:
   docChecksum: beef634374bba9f101a6f25fa9b153ba
   docVersion: "0.1"
-  speakeasyVersion: 1.468.2
-  generationVersion: 2.493.4
-  releaseVersion: 0.8.15
-  configChecksum: d7628e6f234b970710411111b41b757f
+  speakeasyVersion: 1.468.6
+  generationVersion: 2.493.13
+  releaseVersion: 0.8.16
+  configChecksum: a327d135ad3c09caaa73a146f0d4c897
   repoURL: https://github.com/ioniccommerce/ionic_sdk_ts.git
   repoSubDirectory: .
   installationURL: https://github.com/ioniccommerce/ionic_sdk_ts
@@ -15,7 +15,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.18.12
+    core: 3.18.14
     defaultEnabledRetries: 0.1.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
@@ -149,7 +149,7 @@ examples:
   create_product_link:
     speakeasy-default-create-product-link:
       requestBody:
-        application/json: {"client_details": {"ip": "185.113.33.24"}, "product": {"link": "http://negative-wording.biz"}, "query": {"q": "<value>"}, "user_details": {"email": "Mitchell_DAmore49@hotmail.com", "id": "<id>"}}
+        application/json: {"client_details": {"ip": "185.113.33.24"}, "product": {"identifiers": {}, "link": "http://negative-wording.biz"}, "query": {"q": "<value>"}, "user_details": {"email": "Mitchell_DAmore49@hotmail.com", "id": "<id>"}}
       responses:
         "200":
           application/json: {"id": "<id>", "product": {"links": {"original": "https://intent-captor.com", "tagged": "http://negative-wording.biz"}}}
