@@ -409,3 +409,13 @@ Based on:
 - [typescript v0.8.16] .
 ### Releases
 - [NPM v0.8.16] https://www.npmjs.com/package/@ioniccommerce/ionic-sdk/v/0.8.16 - .
+
+## 2025-01-16 00:23:53
+### Changes
+Based on:
+- OpenAPI Doc 0.1 
+- Speakeasy CLI 1.468.8 (2.493.19) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.8.17] .
+### Releases
+- [NPM v0.8.17] https://www.npmjs.com/package/@ioniccommerce/ionic-sdk/v/0.8.17 - .
