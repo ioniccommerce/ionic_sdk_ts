@@ -7,8 +7,37 @@
     </a>
 </div>
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Ionic Commerce | Core API: Ionic Commerce API
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+<!-- $toc-max-depth=2 -->
+* [Ionic-API](#ionic-api)
+  * [SDK Installation](#sdk-installation)
+  * [Requirements](#requirements)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
+  * [Custom HTTP Client](#custom-http-client)
+  * [Authentication](#authentication)
+  * [Retries](#retries)
+  * [Debugging](#debugging)
+  * [Standalone functions](#standalone-functions)
+* [Development](#development)
+  * [Maturity](#maturity)
+  * [Contributions](#contributions)
+
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
+
+The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
 
 ### NPM
 
@@ -16,10 +45,25 @@
 npm add @ioniccommerce/ionic-sdk
 ```
 
+### PNPM
+
+```bash
+pnpm add @ioniccommerce/ionic-sdk
+```
+
+### Bun
+
+```bash
+bun add @ioniccommerce/ionic-sdk
+```
+
 ### Yarn
 
 ```bash
-yarn add @ioniccommerce/ionic-sdk
+yarn add @ioniccommerce/ionic-sdk zod
+
+# Note that Yarn does not install peer dependencies automatically. You will need
+# to install zod as shown above.
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -36,34 +80,32 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 
 ```typescript
 import { Ionic } from "@ioniccommerce/ionic-sdk";
-import { MessageRole, MessageType } from "@ioniccommerce/ionic-sdk/models/components";
+
+const ionic = new Ionic();
 
 async function run() {
-    const sdk = new Ionic();
+  const result = await ionic.createProductLink({
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  }, {
+    clientDetails: {
+      ip: "2aff:3f6d:613d:ecab:e464:1568:83ab:a3e3",
+    },
+    logOnly: false,
+    product: {
+      identifiers: {},
+      link: "https://gentle-hello.name/",
+    },
+    query: {
+      q: "<value>",
+    },
+    userDetails: {
+      email: "Vivian.Waters87@gmail.com",
+      id: "<id>",
+    },
+  });
 
-    const operationSecurity = {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    };
-
-    const result = await sdk.query(
-        {
-            messages: [
-                {
-                    content: "<value>",
-                    role: MessageRole.System,
-                    type: MessageType.Tag,
-                },
-            ],
-            query: {
-                query: "<value>",
-            },
-            session: {},
-        },
-        operationSecurity
-    );
-
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -74,168 +116,139 @@ run();
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+<details open>
+<summary>Available methods</summary>
+
 ### [Ionic SDK](docs/sdks/ionic/README.md)
 
+* [createProductLink](docs/sdks/ionic/README.md#createproductlink) - Ionic Commerce | Create Product Link
 * [query](docs/sdks/ionic/README.md#query) - Product Search
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-All SDK methods return a response object or throw an error. If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `createProductLink` method may throw the following errors:
 
-| Error Object               | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4xx-5xx                    | */*                        |
+| Error Type                 | Status Code | Content Type     |
+| -------------------------- | ----------- | ---------------- |
+| errors.HTTPValidationError | 422         | application/json |
+| errors.SDKError            | 4XX, 5XX    | \*/\*            |
 
-Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging. 
-
+If the method throws an error and it is not captured by the known errors, it will default to throwing a `SDKError`.
 
 ```typescript
 import { Ionic } from "@ioniccommerce/ionic-sdk";
-import { MessageRole, MessageType } from "@ioniccommerce/ionic-sdk/models/components";
-import * as errors from "@ioniccommerce/ionic-sdk/models/errors";
+import {
+  HTTPValidationError,
+  SDKValidationError,
+} from "@ioniccommerce/ionic-sdk/models/errors";
+
+const ionic = new Ionic();
 
 async function run() {
-    const sdk = new Ionic();
-
-    const operationSecurity = {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    };
-
-    let result;
-    try {
-        result = await sdk.query(
-            {
-                messages: [
-                    {
-                        content: "<value>",
-                        role: MessageRole.System,
-                        type: MessageType.Tag,
-                    },
-                ],
-                query: {
-                    query: "<value>",
-                },
-                session: {},
-            },
-            operationSecurity
-        );
-    } catch (err) {
-        switch (true) {
-            case err instanceof errors.SDKValidationError: {
-                // Validation errors can be pretty-printed
-                console.error(err.pretty());
-                // Raw value may also be inspected
-                console.error(err.rawValue);
-                return;
-            }
-            case err instanceof errors.HTTPValidationError: {
-                console.error(err); // handle exception
-                return;
-            }
-            default: {
-                throw err;
-            }
-        }
-    }
+  let result;
+  try {
+    result = await ionic.createProductLink({
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    }, {
+      clientDetails: {
+        ip: "2aff:3f6d:613d:ecab:e464:1568:83ab:a3e3",
+      },
+      logOnly: false,
+      product: {
+        identifiers: {},
+        link: "https://gentle-hello.name/",
+      },
+      query: {
+        q: "<value>",
+      },
+      userDetails: {
+        email: "Vivian.Waters87@gmail.com",
+        id: "<id>",
+      },
+    });
 
     // Handle the result
     console.log(result);
+  } catch (err) {
+    switch (true) {
+      // The server response does not match the expected SDK schema
+      case (err instanceof SDKValidationError): {
+        // Pretty-print will provide a human-readable multi-line error message
+        console.error(err.pretty());
+        // Raw value may also be inspected
+        console.error(err.rawValue);
+        return;
+      }
+      case (err instanceof HTTPValidationError): {
+        // Handle err.data$: HTTPValidationErrorData
+        console.error(err);
+        return;
+      }
+      default: {
+        // Other errors such as network errors, see HTTPClientErrors for more details
+        throw err;
+      }
+    }
+  }
 }
 
 run();
 
 ```
+
+Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted multi-line string since validation errors can list many issues and the plain error string may be difficult read when debugging.
+
+In some rare cases, the SDK can fail to get a response from the server or even make the request due to unexpected circumstances such as network conditions. These types of errors are captured in the `models/errors/httpclienterrors.ts` module:
+
+| HTTP Client Error                                    | Description                                          |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| RequestAbortedError                                  | HTTP request was aborted by the client               |
+| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
+| ConnectionError                                      | HTTP client was unable to make a request to a server |
+| InvalidRequestError                                  | Any input used to create a request is invalid        |
+| UnexpectedClientError                                | Unrecognised or unexpected error                     |
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-### Select Server by Index
-
-You can override the default server globally by passing a server index to the `serverIdx` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://api.ioniccommerce.com` | None |
-
-```typescript
-import { Ionic } from "@ioniccommerce/ionic-sdk";
-import { MessageRole, MessageType } from "@ioniccommerce/ionic-sdk/models/components";
-
-async function run() {
-    const sdk = new Ionic({
-        serverIdx: 0,
-    });
-
-    const operationSecurity = {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    };
-
-    const result = await sdk.query(
-        {
-            messages: [
-                {
-                    content: "<value>",
-                    role: MessageRole.System,
-                    type: MessageType.Tag,
-                },
-            ],
-            query: {
-                query: "<value>",
-            },
-            session: {},
-        },
-        operationSecurity
-    );
-
-    // Handle the result
-    console.log(result);
-}
-
-run();
-
-```
-
-
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverURL` optional parameter when initializing the SDK client instance. For example:
-
+The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
 import { Ionic } from "@ioniccommerce/ionic-sdk";
-import { MessageRole, MessageType } from "@ioniccommerce/ionic-sdk/models/components";
+
+const ionic = new Ionic({
+  serverURL: "https://api.ioniccommerce.com",
+});
 
 async function run() {
-    const sdk = new Ionic({
-        serverURL: "https://api.ioniccommerce.com",
-    });
+  const result = await ionic.createProductLink({
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  }, {
+    clientDetails: {
+      ip: "2aff:3f6d:613d:ecab:e464:1568:83ab:a3e3",
+    },
+    logOnly: false,
+    product: {
+      identifiers: {},
+      link: "https://gentle-hello.name/",
+    },
+    query: {
+      q: "<value>",
+    },
+    userDetails: {
+      email: "Vivian.Waters87@gmail.com",
+      id: "<id>",
+    },
+  });
 
-    const operationSecurity = {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    };
-
-    const result = await sdk.query(
-        {
-            messages: [
-                {
-                    content: "<value>",
-                    role: MessageRole.System,
-                    type: MessageType.Tag,
-                },
-            ],
-            query: {
-                query: "<value>",
-            },
-            session: {},
-        },
-        operationSecurity
-    );
-
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -273,7 +286,7 @@ const httpClient = new HTTPClient({
 
 httpClient.addHook("beforeRequest", (request) => {
   const nextRequest = new Request(request, {
-    signal: request.signal || AbortSignal.timeout(5000);
+    signal: request.signal || AbortSignal.timeout(5000)
   });
 
   nextRequest.headers.set("x-custom-header", "custom value");
@@ -299,9 +312,9 @@ const sdk = new Ionic({ httpClient });
 
 This SDK supports the following security scheme globally:
 
-| Name           | Type           | Scheme         |
-| -------------- | -------------- | -------------- |
-| `apiKeyHeader` | apiKey         | API key        |
+| Name           | Type   | Scheme  |
+| -------------- | ------ | ------- |
+| `apiKeyHeader` | apiKey | API key |
 
 To authenticate with the API the `apiKeyHeader` parameter must be set when initializing the SDK client instance. For example:
 
@@ -311,40 +324,174 @@ To authenticate with the API the `apiKeyHeader` parameter must be set when initi
 Some operations in this SDK require the security scheme to be specified at the request level. For example:
 ```typescript
 import { Ionic } from "@ioniccommerce/ionic-sdk";
-import { MessageRole, MessageType } from "@ioniccommerce/ionic-sdk/models/components";
+
+const ionic = new Ionic();
 
 async function run() {
-    const sdk = new Ionic();
+  const result = await ionic.createProductLink({
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  }, {
+    clientDetails: {
+      ip: "2aff:3f6d:613d:ecab:e464:1568:83ab:a3e3",
+    },
+    logOnly: false,
+    product: {
+      identifiers: {},
+      link: "https://gentle-hello.name/",
+    },
+    query: {
+      q: "<value>",
+    },
+    userDetails: {
+      email: "Vivian.Waters87@gmail.com",
+      id: "<id>",
+    },
+  });
 
-    const operationSecurity = {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    };
-
-    const result = await sdk.query(
-        {
-            messages: [
-                {
-                    content: "<value>",
-                    role: MessageRole.System,
-                    type: MessageType.Tag,
-                },
-            ],
-            query: {
-                query: "<value>",
-            },
-            session: {},
-        },
-        operationSecurity
-    );
-
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
 
 ```
 <!-- End Authentication [security] -->
+
+<!-- Start Retries [retries] -->
+## Retries
+
+Some of the endpoints in this SDK support retries.  If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API.  However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+
+To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
+```typescript
+import { Ionic } from "@ioniccommerce/ionic-sdk";
+
+const ionic = new Ionic();
+
+async function run() {
+  const result = await ionic.createProductLink({
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  }, {
+    clientDetails: {
+      ip: "2aff:3f6d:613d:ecab:e464:1568:83ab:a3e3",
+    },
+    logOnly: false,
+    product: {
+      identifiers: {},
+      link: "https://gentle-hello.name/",
+    },
+    query: {
+      q: "<value>",
+    },
+    userDetails: {
+      email: "Vivian.Waters87@gmail.com",
+      id: "<id>",
+    },
+  }, {
+    retries: {
+      strategy: "backoff",
+      backoff: {
+        initialInterval: 1,
+        maxInterval: 50,
+        exponent: 1.1,
+        maxElapsedTime: 100,
+      },
+      retryConnectionErrors: false,
+    },
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+
+```
+
+If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
+```typescript
+import { Ionic } from "@ioniccommerce/ionic-sdk";
+
+const ionic = new Ionic({
+  retryConfig: {
+    strategy: "backoff",
+    backoff: {
+      initialInterval: 1,
+      maxInterval: 50,
+      exponent: 1.1,
+      maxElapsedTime: 100,
+    },
+    retryConnectionErrors: false,
+  },
+});
+
+async function run() {
+  const result = await ionic.createProductLink({
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  }, {
+    clientDetails: {
+      ip: "2aff:3f6d:613d:ecab:e464:1568:83ab:a3e3",
+    },
+    logOnly: false,
+    product: {
+      identifiers: {},
+      link: "https://gentle-hello.name/",
+    },
+    query: {
+      q: "<value>",
+    },
+    userDetails: {
+      email: "Vivian.Waters87@gmail.com",
+      id: "<id>",
+    },
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+
+```
+<!-- End Retries [retries] -->
+
+<!-- Start Debugging [debug] -->
+## Debugging
+
+You can setup your SDK to emit debug logs for SDK requests and responses.
+
+You can pass a logger that matches `console`'s interface as an SDK option.
+
+> [!WARNING]
+> Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
+
+```typescript
+import { Ionic } from "@ioniccommerce/ionic-sdk";
+
+const sdk = new Ionic({ debugLogger: console });
+```
+<!-- End Debugging [debug] -->
+
+<!-- Start Standalone functions [standalone-funcs] -->
+## Standalone functions
+
+All the methods listed above are available as standalone functions. These
+functions are ideal for use in applications running in the browser, serverless
+runtimes or other environments where application bundle size is a primary
+concern. When using a bundler to build your application, all unused
+functionality will be either excluded from the final bundle or tree-shaken away.
+
+To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
+
+<details>
+
+<summary>Available standalone functions</summary>
+
+- [`createProductLink`](docs/sdks/ionic/README.md#createproductlink) - Ionic Commerce | Create Product Link
+- [`query`](docs/sdks/ionic/README.md#query) - Product Search
+
+</details>
+<!-- End Standalone functions [standalone-funcs] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

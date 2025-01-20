@@ -2,11 +2,16 @@
 
 An enumeration.
 
+## Example Usage
+
+```typescript
+import { MessageRole } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: MessageRole = "user";
+```
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `User`      | user        |
-| `Assistant` | assistant   |
-| `System`    | system      |
+```typescript
+"user" | "assistant" | "system"
+```

@@ -1,5 +1,16 @@
 # Message
 
+## Example Usage
+
+```typescript
+import { Message } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: Message = {
+  content: "<value>",
+  role: "system",
+  type: "summary",
+};
+```
 
 ## Fields
 

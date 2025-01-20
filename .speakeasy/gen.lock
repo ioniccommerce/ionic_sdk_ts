@@ -1,87 +1,168 @@
 lockVersion: 2.0.0
 id: f33a88d3-7592-43ce-8436-66dc4989c954
 management:
-  docChecksum: f892b4139ab45e011d42f9d2d07e997a
+  docChecksum: beef634374bba9f101a6f25fa9b153ba
   docVersion: "0.1"
-  speakeasyVersion: internal
-  generationVersion: 2.272.4
-  releaseVersion: 0.0.3
-  configChecksum: 4b8647fb243476475bbca9815b1ccb2b
+  speakeasyVersion: 1.469.2
+  generationVersion: 2.493.23
+  releaseVersion: 0.8.19
+  configChecksum: 5d2c1a6cc61feff666165063a66c7efa
   repoURL: https://github.com/ioniccommerce/ionic_sdk_ts.git
   repoSubDirectory: .
   installationURL: https://github.com/ioniccommerce/ionic_sdk_ts
   published: true
 features:
   typescript:
-    constsAndDefaults: 0.1.3
-    core: 3.6.1
-    globalSecurity: 2.82.3
-    globalServerURLs: 2.82.3
-    methodSecurity: 2.82.1
-    responseFormat: 0.1.0
-    unions: 2.85.2
+    additionalDependencies: 0.1.0
+    constsAndDefaults: 0.1.11
+    core: 3.18.16
+    defaultEnabledRetries: 0.1.0
+    enumUnions: 0.1.0
+    envVarSecurityUsage: 0.1.2
+    globalSecurity: 2.82.12
+    globalSecurityCallbacks: 0.1.0
+    globalSecurityFlattening: 0.1.0
+    globalServerURLs: 2.82.4
+    methodSecurity: 2.82.5
+    responseFormat: 0.2.3
+    retries: 2.83.0
+    sdkHooks: 0.2.0
+    unions: 2.85.8
 generatedFiles:
-  - src/sdk/sdk.ts
-  - .eslintrc.js
+  - .eslintrc.cjs
+  - .gitattributes
   - .npmignore
+  - FUNCTIONS.md
   - RUNTIMES.md
+  - USAGE.md
+  - docs/lib/utils/retryconfig.md
+  - docs/models/components/amountwithcurrency.md
+  - docs/models/components/clientdetails.md
+  - docs/models/components/enrichedproduct.md
+  - docs/models/components/extension.md
+  - docs/models/components/extensionimages.md
+  - docs/models/components/extensionlinks.md
+  - docs/models/components/extensionobject.md
+  - docs/models/components/extensions.md
+  - docs/models/components/link.md
+  - docs/models/components/loc.md
+  - docs/models/components/message.md
+  - docs/models/components/messagerole.md
+  - docs/models/components/messagetype.md
+  - docs/models/components/pricewithcurrency.md
+  - docs/models/components/product.md
+  - docs/models/components/productdetails.md
+  - docs/models/components/productidentifiers.md
+  - docs/models/components/productlinkrequest.md
+  - docs/models/components/productlinkresponse.md
+  - docs/models/components/query.md
+  - docs/models/components/queryapirequest.md
+  - docs/models/components/queryapiresponse.md
+  - docs/models/components/querydetails.md
+  - docs/models/components/queryresult.md
+  - docs/models/components/security.md
+  - docs/models/components/session.md
+  - docs/models/components/shippingattribute.md
+  - docs/models/components/taggedlink.md
+  - docs/models/components/userdetails.md
+  - docs/models/components/validationerror.md
+  - docs/models/errors/httpvalidationerror.md
+  - docs/models/operations/createproductlinkresponse.md
+  - docs/models/operations/createproductlinksecurity.md
+  - docs/models/operations/queryresponse.md
+  - docs/models/operations/querysecurity.md
+  - docs/sdks/ionic/README.md
+  - jsr.json
   - package.json
+  - src/core.ts
+  - src/funcs/createProductLink.ts
+  - src/funcs/query.ts
+  - src/hooks/hooks.ts
+  - src/hooks/index.ts
+  - src/hooks/types.ts
   - src/index.ts
   - src/lib/base64.ts
   - src/lib/config.ts
+  - src/lib/dlv.ts
   - src/lib/encodings.ts
-  - src/lib/event-streams.ts
+  - src/lib/files.ts
   - src/lib/http.ts
+  - src/lib/is-plain-object.ts
+  - src/lib/logger.ts
+  - src/lib/matchers.ts
+  - src/lib/primitives.ts
   - src/lib/retries.ts
   - src/lib/schemas.ts
   - src/lib/sdks.ts
   - src/lib/security.ts
   - src/lib/url.ts
-  - src/sdk/index.ts
+  - src/models/components/amountwithcurrency.ts
+  - src/models/components/clientdetails.ts
+  - src/models/components/enrichedproduct.ts
+  - src/models/components/extension.ts
+  - src/models/components/extensionimages.ts
+  - src/models/components/extensionlinks.ts
+  - src/models/components/extensionobject.ts
+  - src/models/components/extensions.ts
+  - src/models/components/index.ts
+  - src/models/components/link.ts
+  - src/models/components/message.ts
+  - src/models/components/messagerole.ts
+  - src/models/components/messagetype.ts
+  - src/models/components/pricewithcurrency.ts
+  - src/models/components/product.ts
+  - src/models/components/productdetails.ts
+  - src/models/components/productidentifiers.ts
+  - src/models/components/productlinkrequest.ts
+  - src/models/components/productlinkresponse.ts
+  - src/models/components/query.ts
+  - src/models/components/queryapirequest.ts
+  - src/models/components/queryapiresponse.ts
+  - src/models/components/querydetails.ts
+  - src/models/components/queryresult.ts
+  - src/models/components/security.ts
+  - src/models/components/session.ts
+  - src/models/components/shippingattribute.ts
+  - src/models/components/taggedlink.ts
+  - src/models/components/userdetails.ts
+  - src/models/components/validationerror.ts
+  - src/models/errors/httpclienterrors.ts
+  - src/models/errors/httpvalidationerror.ts
+  - src/models/errors/index.ts
   - src/models/errors/sdkerror.ts
   - src/models/errors/sdkvalidationerror.ts
+  - src/models/operations/createproductlink.ts
+  - src/models/operations/index.ts
+  - src/models/operations/query.ts
+  - src/sdk/index.ts
+  - src/sdk/sdk.ts
   - src/types/blobs.ts
-  - src/types/decimal.ts
+  - src/types/constdatetime.ts
+  - src/types/enums.ts
+  - src/types/fp.ts
   - src/types/index.ts
   - src/types/operations.ts
   - src/types/rfcdate.ts
+  - src/types/streams.ts
   - tsconfig.json
-  - src/models/operations/query.ts
-  - src/models/components/queryapiresponse.ts
-  - src/models/components/queryresult.ts
-  - src/models/components/query.ts
-  - src/models/components/product.ts
-  - src/models/components/link.ts
-  - src/models/components/validationerror.ts
-  - src/models/components/queryapirequest.ts
-  - src/models/components/session.ts
-  - src/models/components/message.ts
-  - src/models/components/messagetype.ts
-  - src/models/components/messagerole.ts
-  - src/models/components/security.ts
-  - src/models/errors/httpvalidationerror.ts
-  - src/models/errors/index.ts
-  - src/models/operations/index.ts
-  - src/models/components/index.ts
-  - docs/models/operations/querysecurity.md
-  - docs/models/operations/queryresponse.md
-  - docs/models/components/queryapiresponse.md
-  - docs/models/components/queryresult.md
-  - docs/models/components/query.md
-  - docs/models/components/product.md
-  - docs/models/components/link.md
-  - docs/models/components/loc.md
-  - docs/models/components/validationerror.md
-  - docs/models/components/queryapirequest.md
-  - docs/models/components/session.md
-  - docs/models/components/message.md
-  - docs/models/components/messagetype.md
-  - docs/models/components/messagerole.md
-  - docs/models/components/security.md
-  - docs/models/errors/httpvalidationerror.md
-  - docs/sdks/ionic/README.md
-  - USAGE.md
-  - .gitattributes
-  - src/hooks/hooks.ts
-  - src/hooks/types.ts
-  - src/hooks/index.ts
+examples:
+  create_product_link:
+    speakeasy-default-create-product-link:
+      requestBody:
+        application/json: {"client_details": {"ip": "2aff:3f6d:613d:ecab:e464:1568:83ab:a3e3"}, "log_only": false, "product": {"identifiers": {}, "link": "https://gentle-hello.name/"}, "query": {"q": "<value>"}, "user_details": {"email": "Vivian.Waters87@gmail.com", "id": "<id>"}}
+      responses:
+        "200":
+          application/json: {"id": "<id>", "product": {"links": {"original": "https://hasty-trolley.net/", "tagged": "https://courageous-hutch.info"}}}
+        "422":
+          application/json: {}
+  query:
+    speakeasy-default-query:
+      requestBody:
+        application/json: {"query": {"num_results": 5, "query": "<value>"}}
+      responses:
+        "200":
+          application/json: {"token": "<value>"}
+        "422":
+          application/json: {}
+examplesVersion: 1.0.0
+generatedTests: {}

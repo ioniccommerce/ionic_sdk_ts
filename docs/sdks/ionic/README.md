@@ -1,13 +1,119 @@
 # Ionic SDK
 
-
 ## Overview
 
-Ionic Commerce | API: Ionic Commerce API
+Ionic Commerce | Core API: Ionic Commerce API
 
 ### Available Operations
 
+* [createProductLink](#createproductlink) - Ionic Commerce | Create Product Link
 * [query](#query) - Product Search
+
+## createProductLink
+
+Creates and returns a tagged affiliate link
+
+### Example Usage
+
+```typescript
+import { Ionic } from "@ioniccommerce/ionic-sdk";
+
+const ionic = new Ionic();
+
+async function run() {
+  const result = await ionic.createProductLink({
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  }, {
+    clientDetails: {
+      ip: "2aff:3f6d:613d:ecab:e464:1568:83ab:a3e3",
+    },
+    logOnly: false,
+    product: {
+      identifiers: {},
+      link: "https://gentle-hello.name/",
+    },
+    query: {
+      q: "<value>",
+    },
+    userDetails: {
+      email: "Vivian.Waters87@gmail.com",
+      id: "<id>",
+    },
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { IonicCore } from "@ioniccommerce/ionic-sdk/core.js";
+import { createProductLink } from "@ioniccommerce/ionic-sdk/funcs/createProductLink.js";
+
+// Use `IonicCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const ionic = new IonicCore();
+
+async function run() {
+  const res = await createProductLink(ionic, {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  }, {
+    clientDetails: {
+      ip: "2aff:3f6d:613d:ecab:e464:1568:83ab:a3e3",
+    },
+    logOnly: false,
+    product: {
+      identifiers: {},
+      link: "https://gentle-hello.name/",
+    },
+    query: {
+      q: "<value>",
+    },
+    userDetails: {
+      email: "Vivian.Waters87@gmail.com",
+      id: "<id>",
+    },
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [components.ProductLinkRequest](../../models/components/productlinkrequest.md)                                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.CreateProductLinkSecurity](../../models/operations/createproductlinksecurity.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.CreateProductLinkResponse](../../models/operations/createproductlinkresponse.md)\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## query
 
@@ -17,31 +123,56 @@ API for searching for products & recommendations.
 
 ```typescript
 import { Ionic } from "@ioniccommerce/ionic-sdk";
-import { MessageRole, MessageType } from "@ioniccommerce/ionic-sdk/models/components";
+
+const ionic = new Ionic();
 
 async function run() {
-  const sdk = new Ionic();
-
-  const operationSecurity = {
+  const result = await ionic.query({
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
-  };
-  
-  const result = await sdk.query({
-    messages: [
-      {
-        content: "<value>",
-        role: MessageRole.System,
-        type: MessageType.Tag,
-      },
-    ],
+  }, {
     query: {
+      numResults: 5,
       query: "<value>",
     },
-    session: {},
-  }, operationSecurity);
+  });
 
   // Handle the result
-  console.log(result)
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { IonicCore } from "@ioniccommerce/ionic-sdk/core.js";
+import { query } from "@ioniccommerce/ionic-sdk/funcs/query.js";
+
+// Use `IonicCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const ionic = new IonicCore();
+
+async function run() {
+  const res = await query(ionic, {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  }, {
+    query: {
+      numResults: 5,
+      query: "<value>",
+    },
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -55,14 +186,15 @@ run();
 | `security`                                                                                                                                                                     | [operations.QuerySecurity](../../models/operations/querysecurity.md)                                                                                                           | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise<[operations.QueryResponse](../../models/operations/queryresponse.md)>**
+**Promise\<[operations.QueryResponse](../../models/operations/queryresponse.md)\>**
+
 ### Errors
 
-| Error Object               | Status Code                | Content Type               |
+| Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
 | errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4xx-5xx                    | */*                        |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |

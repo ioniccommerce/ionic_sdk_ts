@@ -1,5 +1,32 @@
 # QueryResult
 
+## Example Usage
+
+```typescript
+import { QueryResult } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: QueryResult = {
+  products: [
+    {
+      links: [
+        {
+          text: "<value>",
+          type: "<value>",
+          url: "https://content-costume.info",
+        },
+      ],
+      merchantName: "<value>",
+      merchantProductId: "<id>",
+      name: "<value>",
+      price: "821.10",
+      status: "<value>",
+    },
+  ],
+  query: {
+    query: "<value>",
+  },
+};
+```
 
 ## Fields
 

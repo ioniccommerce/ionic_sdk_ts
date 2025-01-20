@@ -1,5 +1,14 @@
 # QueryAPIResponse
 
+## Example Usage
+
+```typescript
+import { QueryAPIResponse } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: QueryAPIResponse = {
+  token: "<value>",
+};
+```
 
 ## Fields
 

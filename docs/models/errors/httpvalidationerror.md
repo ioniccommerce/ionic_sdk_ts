@@ -1,5 +1,12 @@
 # HTTPValidationError
 
+## Example Usage
+
+```typescript
+import { HTTPValidationError } from "@ioniccommerce/ionic-sdk/models/errors";
+
+// No examples available for this model
+```
 
 ## Fields
 

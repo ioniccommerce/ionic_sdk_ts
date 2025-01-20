@@ -1,34 +1,32 @@
 <!-- Start SDK Example Usage [usage] -->
 ```typescript
 import { Ionic } from "@ioniccommerce/ionic-sdk";
-import { MessageRole, MessageType } from "@ioniccommerce/ionic-sdk/models/components";
+
+const ionic = new Ionic();
 
 async function run() {
-    const sdk = new Ionic();
+  const result = await ionic.createProductLink({
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  }, {
+    clientDetails: {
+      ip: "2aff:3f6d:613d:ecab:e464:1568:83ab:a3e3",
+    },
+    logOnly: false,
+    product: {
+      identifiers: {},
+      link: "https://gentle-hello.name/",
+    },
+    query: {
+      q: "<value>",
+    },
+    userDetails: {
+      email: "Vivian.Waters87@gmail.com",
+      id: "<id>",
+    },
+  });
 
-    const operationSecurity = {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    };
-
-    const result = await sdk.query(
-        {
-            messages: [
-                {
-                    content: "<value>",
-                    role: MessageRole.System,
-                    type: MessageType.Tag,
-                },
-            ],
-            query: {
-                query: "<value>",
-            },
-            session: {},
-        },
-        operationSecurity
-    );
-
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();

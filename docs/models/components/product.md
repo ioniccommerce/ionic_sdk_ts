@@ -1,16 +1,41 @@
 # Product
 
+## Example Usage
+
+```typescript
+import { Product } from "@ioniccommerce/ionic-sdk/models/components";
+
+let value: Product = {
+  links: [
+    {
+      text: "<value>",
+      type: "<value>",
+      url: "https://wobbly-instance.org/",
+    },
+  ],
+  merchantName: "<value>",
+  merchantProductId: "<id>",
+  name: "<value>",
+  price: "605.29",
+  status: "<value>",
+};
+```
 
 ## Fields
 
-| Field                                                | Type                                                 | Required                                             | Description                                          |
-| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| `brandName`                                          | *string*                                             | :heavy_minus_sign:                                   | N/A                                                  |
-| `links`                                              | [components.Link](../../models/components/link.md)[] | :heavy_check_mark:                                   | N/A                                                  |
-| `merchantName`                                       | *string*                                             | :heavy_check_mark:                                   | N/A                                                  |
-| `merchantProductId`                                  | *string*                                             | :heavy_check_mark:                                   | N/A                                                  |
-| `name`                                               | *string*                                             | :heavy_check_mark:                                   | N/A                                                  |
-| `price`                                              | *string*                                             | :heavy_check_mark:                                   | N/A                                                  |
-| `status`                                             | *string*                                             | :heavy_check_mark:                                   | N/A                                                  |
-| `thumbnail`                                          | *string*                                             | :heavy_check_mark:                                   | N/A                                                  |
-| `upc`                                                | *string*                                             | :heavy_minus_sign:                                   | N/A                                                  |
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `brandName`                                                                    | *string*                                                                       | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `description`                                                                  | *string*                                                                       | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `extensions`                                                                   | [components.Extensions](../../models/components/extensions.md)                 | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `links`                                                                        | [components.Link](../../models/components/link.md)[]                           | :heavy_check_mark:                                                             | N/A                                                                            |
+| `merchantLogo`                                                                 | *string*                                                                       | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `merchantName`                                                                 | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `merchantProductId`                                                            | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `name`                                                                         | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `price`                                                                        | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `referenceUrl`                                                                 | *string*                                                                       | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `shippingAttributes`                                                           | [components.ShippingAttribute](../../models/components/shippingattribute.md)[] | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `status`                                                                       | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `thumbnail`                                                                    | *string*                                                                       | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `upc`                                                                          | *string*                                                                       | :heavy_minus_sign:                                                             | N/A                                                                            |
