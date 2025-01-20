@@ -3,10 +3,10 @@ id: f33a88d3-7592-43ce-8436-66dc4989c954
 management:
   docChecksum: beef634374bba9f101a6f25fa9b153ba
   docVersion: "0.1"
-  speakeasyVersion: 1.468.9
-  generationVersion: 2.493.21
-  releaseVersion: 0.8.18
-  configChecksum: 4de3f117de4fd2d6bbf6c4615218f2f9
+  speakeasyVersion: 1.469.2
+  generationVersion: 2.493.23
+  releaseVersion: 0.8.19
+  configChecksum: 5d2c1a6cc61feff666165063a66c7efa
   repoURL: https://github.com/ioniccommerce/ionic_sdk_ts.git
   repoSubDirectory: .
   installationURL: https://github.com/ioniccommerce/ionic_sdk_ts
@@ -149,19 +149,20 @@ examples:
   create_product_link:
     speakeasy-default-create-product-link:
       requestBody:
-        application/json: {"client_details": {"ip": "185.113.33.24"}, "product": {"identifiers": {}, "link": "http://negative-wording.biz"}, "query": {"q": "<value>"}, "user_details": {"email": "Mitchell_DAmore49@hotmail.com", "id": "<id>"}}
+        application/json: {"client_details": {"ip": "2aff:3f6d:613d:ecab:e464:1568:83ab:a3e3"}, "log_only": false, "product": {"identifiers": {}, "link": "https://gentle-hello.name/"}, "query": {"q": "<value>"}, "user_details": {"email": "Vivian.Waters87@gmail.com", "id": "<id>"}}
       responses:
         "200":
-          application/json: {"id": "<id>", "product": {"links": {"original": "https://intent-captor.com", "tagged": "http://negative-wording.biz"}}}
+          application/json: {"id": "<id>", "product": {"links": {"original": "https://hasty-trolley.net/", "tagged": "https://courageous-hutch.info"}}}
         "422":
           application/json: {}
   query:
     speakeasy-default-query:
       requestBody:
-        application/json: {"query": {"query": "<value>"}}
+        application/json: {"query": {"num_results": 5, "query": "<value>"}}
       responses:
         "200":
           application/json: {"token": "<value>"}
         "422":
           application/json: {}
+examplesVersion: 1.0.0
 generatedTests: {}

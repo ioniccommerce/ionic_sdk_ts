@@ -9,17 +9,18 @@ async function run() {
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
   }, {
     clientDetails: {
-      ip: "185.113.33.24",
+      ip: "2aff:3f6d:613d:ecab:e464:1568:83ab:a3e3",
     },
+    logOnly: false,
     product: {
       identifiers: {},
-      link: "http://negative-wording.biz",
+      link: "https://gentle-hello.name/",
     },
     query: {
       q: "<value>",
     },
     userDetails: {
-      email: "Mitchell_DAmore49@hotmail.com",
+      email: "Vivian.Waters87@gmail.com",
       id: "<id>",
     },
   });
